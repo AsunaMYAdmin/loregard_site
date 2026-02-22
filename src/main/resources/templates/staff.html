@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Администрация | Loregard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/staff.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+    <div class="rune rune-1"></div>
+    <div class="rune rune-2"></div>
+    <div class="rune rune-3"></div>
+    <div class="rune rune-4"></div>
+    <div class="mist mist-1"></div>
+    <div class="mist mist-2"></div>
+    <div class="ancient-symbol symbol-1">ᛉ</div>
+    <div class="ancient-symbol symbol-2">ᛟ</div>
+    <div class="ancient-symbol symbol-3">ᚨ</div>
+    <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('staff')}"></div>
+
+<main class="main">
+    <div class="container">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="/">Главная</a> <span>/</span> <span>Администрация</span>
+        </div>
+
+        <!-- Заголовок с эпичным описанием -->
+        <section class="staff-header">
+            <h1 class="staff-title">Хранители <span class="gradient-text">Loregard</span></h1>
+            <p class="staff-description">
+                Те, кто оберегает миры от хаоса, следит за порядком и помогает героям
+                в трудную минуту. Каждый из них — легенда, достойная упоминания в скрижалях.
+            </p>
+        </section>
+
+        <!-- Секция с создателем (САМЫЙ КРУТОЙ) -->
+        <section class="creator-section">
+            <div class="creator-crown">👑</div>
+            <div class="creator-card">
+                <div class="creator-avatar">
+                    <div class="avatar-glow"></div>
+                    <span class="avatar-emoji">⚔️</span>
+                </div>
+                <div class="creator-info">
+                    <div class="creator-badge">Верховный хранитель</div>
+                    <h2 class="creator-name">Asuna's Knight</h2>
+                    <div class="creator-titles">
+                        <span class="title">Создатель миров</span>
+                        <span class="title">Хранитель кристаллов</span>
+                        <span class="title">Владыка Loregard</span>
+                    </div>
+                    <p class="creator-description">
+                        Тот, кто зажёг искру этого мира. Его слово — закон, его меч — справедливость,
+                        а его кристаллы — бесконечны. Легенда, что ходит среди нас.
+                    </p>
+                    <div class="creator-stats">
+                        <div class="stat">
+                            <span class="stat-value">∞</span>
+                            <span class="stat-label">Сила</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">⚡</span>
+                            <span class="stat-label">Мудрость</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">👑</span>
+                            <span class="stat-label">Власть</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="creator-runes">
+                    <span>ᚨᛋᚢᚾᚨ</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Разделитель с рунами -->
+        <div class="staff-divider">
+            <span class="divider-rune">ᚠ</span>
+            <span class="divider-rune">ᚢ</span>
+            <span class="divider-rune">ᚦ</span>
+            <span class="divider-rune">ᚨ</span>
+            <span class="divider-rune">ᚱ</span>
+            <span class="divider-rune">ᚲ</span>
+        </div>
+
+        <!-- Администрация (остальные) -->
+        <section class="staff-grid-section">
+            <h2 class="staff-subtitle">Совет <span class="gradient-text">мудрейших</span></h2>
+
+            <div class="staff-grid">
+                <!-- Главный администратор -->
+                <div class="staff-card admin">
+                    <div class="staff-rank">⚡</div>
+                    <div class="staff-avatar">🛡️</div>
+                    <h3 class="staff-name">ShadowKeeper</h3>
+                    <div class="staff-role">Главный администратор</div>
+
+                    <!-- Рамка с описанием -->
+                    <div class="staff-description-box">
+                        <p class="staff-desc">Следит за порядком в мирах и карает нарушителей</p>
+                    </div>
+
+                    <!-- Год внизу -->
+                    <div class="staff-year">С 2023</div>
+
+                    <div class="staff-social">
+                        <a href="#" class="social-link">💬</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <!-- Ведущий разработчик -->
+                <div class="staff-card dev">
+                    <div class="staff-rank">⚙️</div>
+                    <div class="staff-avatar">🔧</div>
+                    <h3 class="staff-name">CodeWizard</h3>
+                    <div class="staff-role">Ведущий разработчик</div>
+
+                    <div class="staff-description-box">
+                        <p class="staff-desc">Творит магию кода и чинит баги</p>
+                    </div>
+
+                    <div class="staff-year">С 2024</div>
+
+                    <div class="staff-social">
+                        <a href="#" class="social-link">💬</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <!-- Главный модератор -->
+                <div class="staff-card mod">
+                    <div class="staff-rank">⚖️</div>
+                    <div class="staff-avatar">📜</div>
+                    <h3 class="staff-name">PeaceMaker</h3>
+                    <div class="staff-role">Главный модератор</div>
+
+                    <div class="staff-description-box">
+                        <p class="staff-desc">Следит за порядком в чатах и на форуме</p>
+                    </div>
+
+                    <div class="staff-year">С 2024</div>
+
+                    <div class="staff-social">
+                        <a href="#" class="social-link">💬</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <!-- Строитель -->
+                <div class="staff-card builder">
+                    <div class="staff-rank">🏗️</div>
+                    <div class="staff-avatar">🏰</div>
+                    <h3 class="staff-name">WorldBuilder</h3>
+                    <div class="staff-role">Главный строитель</div>
+
+                    <div class="staff-description-box">
+                        <p class="staff-desc">Создаёт красоту миров Loregard</p>
+                    </div>
+
+                    <div class="staff-year">С 2023</div>
+
+                    <div class="staff-social">
+                        <a href="#" class="social-link">💬</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <!-- Экономист -->
+                <div class="staff-card economist">
+                    <div class="staff-rank">💰</div>
+                    <div class="staff-avatar">💎</div>
+                    <h3 class="staff-name">CrystalMage</h3>
+                    <div class="staff-role">Хранитель банка</div>
+
+                    <div class="staff-description-box">
+                        <p class="staff-desc">Следит за кристальной экономикой</p>
+                    </div>
+
+                    <div class="staff-year">С 2025</div>
+
+                    <div class="staff-social">
+                        <a href="#" class="social-link">💬</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+
+                <!-- Ивент-менеджер -->
+                <div class="staff-card event">
+                    <div class="staff-rank">🎉</div>
+                    <div class="staff-avatar">🎪</div>
+                    <h3 class="staff-name">EventMaster</h3>
+                    <div class="staff-role">Ивент-менеджер</div>
+
+                    <div class="staff-description-box">
+                        <p class="staff-desc">Устраивает праздники и турниры</p>
+                    </div>
+
+                    <div class="staff-year">С 2025</div>
+
+                    <div class="staff-social">
+                        <a href="#" class="social-link">💬</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Легенда о хранителях -->
+        <section class="staff-legend">
+            <div class="legend-card">
+                <h3 class="legend-title">Древнее пророчество</h3>
+                <p class="legend-text">
+                    «Когда тьма сгущается над мирами, хранители собираются в круг.
+                    Их сила — в единстве, их мудрость — в опыте, их власть — в справедливости.
+                    И пока стоит Loregard, они будут оберегать покой героев».
+                </p>
+                <div class="legend-signature">
+                    <span>Asuna's Knight</span>
+                    <span>Верховный хранитель</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+        document.querySelector('.nav').classList.toggle('active');
+    });
+</script>
+</body>
+</html>

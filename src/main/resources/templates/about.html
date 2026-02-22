@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О проекте | Loregard</title>
+    <link rel="stylesheet" href="/css/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+    <div class="rune rune-1"></div>
+    <div class="rune rune-2"></div>
+    <div class="rune rune-3"></div>
+    <div class="rune rune-4"></div>
+    <div class="mist mist-1"></div>
+    <div class="mist mist-2"></div>
+    <div class="ancient-symbol symbol-1">ᛉ</div>
+    <div class="ancient-symbol symbol-2">ᛟ</div>
+    <div class="ancient-symbol symbol-3">ᚨ</div>
+    <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('about')}"></div>
+
+<main class="about">
+    <div class="container">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="/">Главная</a> <span>/</span> <span>О проекте</span>
+        </div>
+
+        <!-- Геройский блок с создателем -->
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <div class="hero-badge">⚡ Легенда начинается ⚡</div>
+                <h1 class="hero-title">
+                    Добро пожаловать в <span class="gradient-text">Loregard</span>
+                </h1>
+                <p class="hero-description">
+                    Фэнтезийный мир в Minecraft, созданный для тех, кто ищет настоящие приключения,
+                    исследования и магию. Проект, вдохновлённый лучшими ММО-играми, но с душой Minecraft.
+                </p>
+                <div class="creator-block">
+                    <span class="creator-label">Создатель проекта</span>
+                    <span class="creator-name">⚔️ Asuna's Knight ⚔️</span>
+                </div>
+            </div>
+            <div class="about-hero-image">
+                <div class="floating-runes">
+                    <span>ᚠ</span><span>ᚢ</span><span>ᚦ</span><span>ᚨ</span><span>ᚱ</span>
+                    <span>ᚲ</span><span>ᚷ</span><span>ᚹ</span><span>ᚺ</span><span>ᚾ</span>
+                </div>
+                <div class="dragon-silhouette"></div>
+            </div>
+        </section>
+
+        <!-- История и философия -->
+        <section class="philosophy">
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <h2 class="philosophy-title">Наша <span class="gradient-text">история</span></h2>
+                    <p class="philosophy-text">
+                        Loregard родился из мечты создать мир, где каждый игрок сможет почувствовать себя героем
+                        эпического сказания. Мы объединили лучшие механики классических ММО-проектов с безграничными
+                        возможностями Minecraft, чтобы подарить вам уникальный опыт.
+                    </p>
+                    <p class="philosophy-text">
+                        Здесь нет случайных людей — каждый, кто переступает порог Loregard, становится частью
+                        древней легенды, которую мы пишем вместе.
+                    </p>
+                </div>
+                <div class="philosophy-card">
+                    <h2 class="philosophy-title">Наша <span class="gradient-text">философия</span></h2>
+                    <p class="philosophy-text">
+                        Мы верим, что лучший проект создаётся сообществом. Каждое ваше пожелание, каждый отзыв —
+                        это кирпичик в стене нашего общего мира. Мы постоянно развиваемся, добавляем новый контент
+                        и улучшаем старый, чтобы Loregard оставался живым и интересным.
+                    </p>
+                    <p class="philosophy-text">
+                        <strong>Исследование, развитие, общение</strong> — три кита, на которых держится наш мир.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Особенности проекта (карточки) -->
+        <section class="features">
+            <h2 class="section-title">Что делает <span class="gradient-text">Loregard</span> особенным</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Исследование миров</h3>
+                    <p>Четыре уникальных измерения с собственной историей, существами и секретами. Каждый уголок таит загадки.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>Кристальная экономика</h3>
+                    <p>Собственный банк с кристаллами, счетами, переводами и вкладами. Всё по-взрослому.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚔️</div>
+                    <h3>Классовая система</h3>
+                    <p>Воин, маг, лучник или плут — выбери свой путь и прокачивай уникальные способности.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗣️</div>
+                    <h3>Живое сообщество</h3>
+                    <p>Собственный форум, где игроки обсуждают всё: от тактик до легенд мира.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏰</div>
+                    <h3>Клановые замки</h3>
+                    <p>Объединяйся с друзьями, захватывай территории и защищай свои владения.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📜</div>
+                    <h3>Живой лор</h3>
+                    <p>Мир, который развивается. События влияют на историю, а игроки могут стать её частью.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Банк и Форум (спецблок) -->
+        <section class="special-features">
+            <div class="special-grid">
+                <div class="special-card bank-card">
+                    <div class="special-icon">🏦</div>
+                    <h3 class="special-title">Кристальный банк</h3>
+                    <p class="special-description">
+                        У нас есть свой полнофункциональный банк с системой счетов, вкладов, переводов и
+                        магической валютой. Храни кристаллы, получай проценты и чувствуй себя настоящим
+                        финансистом в мире магии.
+                    </p>
+                    <ul class="special-list">
+                        <li>✅ Открытие счетов</li>
+                        <li>✅ Переводы между игроками</li>
+                        <li>✅ Проценты на остаток</li>
+                        <li>✅ Кристальные кредиты</li>
+                    </ul>
+                    <a href="/bank" class="btn btn-primary">Перейти в банк →</a>
+                </div>
+                <div class="special-card forum-card">
+                    <div class="special-icon">💬</div>
+                    <h3 class="special-title">Форум Loregard</h3>
+                    <p class="special-description">
+                        Место, где рождаются легенды. Обсуждай обновления, делись стратегиями, ищи друзей
+                        для приключений или просто общайся с единомышленниками. Мы всегда рады новым голосам.
+                    </p>
+                    <ul class="special-list">
+                        <li>✅ Обсуждение обновлений</li>
+                        <li>✅ Поиск гильдий</li>
+                        <li>✅ Торговля и обмен</li>
+                        <li>✅ Легенды и фанфики</li>
+                    </ul>
+                    <a href="/forum" class="btn btn-outline">Перейти на форум →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Слова создателя -->
+        <section class="creator-message">
+            <div class="message-container">
+                <div class="message-quote">"</div>
+                <p class="message-text">
+                    Loregard — это не просто сервер. Это мир, который я создавал с любовью к каждой детали.
+                    Я хочу, чтобы каждый, кто заходит сюда, чувствовал себя частью чего-то большого и важного.
+                    Мы прислушиваемся к каждому игроку, потому что без вас этот мир был бы пуст.
+                    Спасибо, что вы здесь. Вместе мы сделаем Loregard легендой.
+                </p>
+                <div class="message-author">
+                    <span class="author-name">Asuna's Knight</span>
+                    <span class="author-title">Хранитель миров</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Цифры проекта -->
+        <section class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Уникальных мира</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2.5K+</div>
+                    <div class="stat-label">Игроков</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Года развития</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Приключений</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Призыв присоединиться -->
+        <section class="cta">
+            <div class="cta-content">
+                <h2 class="cta-title">Готов стать частью легенды?</h2>
+                <p class="cta-description">
+                    Присоединяйся к Loregard прямо сейчас. Мир ждёт своего героя.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-large">Начать приключение</a>
+                    <a href="#" class="btn btn-outline btn-large">Читать форум</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+        document.querySelector('.nav').classList.toggle('active');
+    });
+</script>
+</body>
+</html>

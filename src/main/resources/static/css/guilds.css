@@ -1,0 +1,398 @@
+/* ========== СТРАНИЦА ГИЛЬДИЙ ========== */
+.guilds {
+    padding: 40px 0 60px;
+}
+
+/* Хлебные крошки */
+.breadcrumbs {
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.breadcrumbs a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumbs a:hover {
+    color: var(--orange-primary);
+}
+
+/* Заголовок */
+.guilds-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-xl);
+    padding: 30px;
+}
+
+.header-title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.header-description {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+.header-decoration .guilds-icon {
+    font-size: 80px;
+    filter: drop-shadow(0 0 20px var(--orange-primary));
+    animation: float 3s infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+/* Фильтры и поиск */
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-md);
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    border-color: var(--orange-primary);
+    color: var(--orange-light);
+}
+
+.filter-btn.active {
+    background: var(--gradient-orange);
+    color: white;
+    border-color: transparent;
+}
+
+.search {
+    display: flex;
+    gap: 8px;
+}
+
+.search-input {
+    padding: 8px 16px;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
+    font-size: 14px;
+    min-width: 250px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--orange-primary);
+}
+
+.search-btn {
+    padding: 8px 16px;
+    background: var(--gradient-orange);
+    border: none;
+    border-radius: var(--border-radius-md);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-orange);
+}
+
+/* Сетка гильдий */
+.guilds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.guild-card {
+    position: relative;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-xl);
+    padding: 30px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.guild-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-orange);
+}
+
+.guild-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-orange);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.guild-card:hover::before {
+    transform: scaleX(1);
+}
+
+.guild-rank {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--orange-primary);
+    opacity: 0.3;
+}
+
+.guild-icon {
+    font-size: 64px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 15px var(--orange-primary));
+    text-align: center;
+}
+
+.guild-name {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.guild-tagline {
+    text-align: center;
+    font-style: italic;
+    color: var(--orange-light);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.guild-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(255, 140, 66, 0.2);
+    border-bottom: 1px solid rgba(255, 140, 66, 0.2);
+}
+
+.guild-stat {
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--orange-primary);
+}
+
+.guild-description {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.guild-master {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background: rgba(255, 140, 66, 0.1);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 12px;
+}
+
+.master-avatar {
+    font-size: 24px;
+}
+
+.master-name {
+    font-weight: 600;
+    color: var(--orange-light);
+}
+
+.guild-members-preview {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.member-avatar {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 140, 66, 0.1);
+    border: 1px solid rgba(255, 140, 66, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.guild-card:hover .member-avatar {
+    border-color: var(--orange-primary);
+}
+
+.member-avatar:last-child {
+    background: var(--gradient-orange);
+    color: white;
+    font-size: 12px;
+}
+
+.guild-badge {
+    position: absolute;
+    top: 60px;
+    right: -30px;
+    background: var(--gradient-orange);
+    color: white;
+    padding: 4px 40px;
+    font-size: 12px;
+    font-weight: 600;
+    transform: rotate(45deg);
+    box-shadow: var(--shadow-orange);
+}
+
+/* Пагинация */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 40px;
+}
+
+.page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-md);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.page-link:hover {
+    border-color: var(--orange-primary);
+    color: var(--orange-light);
+}
+
+.page-link.active {
+    background: var(--gradient-orange);
+    color: white;
+    border-color: transparent;
+}
+
+.page-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--text-muted);
+}
+
+/* Адаптация */
+@media (max-width: 768px) {
+    .guilds-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .search-input {
+        flex: 1;
+    }
+
+    .guilds-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 32px;
+    }
+
+    .filter-tabs {
+        justify-content: center;
+    }
+
+    .guild-stats {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .guild-stat {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .stat-label {
+        margin-bottom: 0;
+    }
+}

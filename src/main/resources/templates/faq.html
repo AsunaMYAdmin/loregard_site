@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Loregard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/faq.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+    <div class="rune rune-1"></div>
+    <div class="rune rune-2"></div>
+    <div class="rune rune-3"></div>
+    <div class="rune rune-4"></div>
+    <div class="mist mist-1"></div>
+    <div class="mist mist-2"></div>
+    <div class="ancient-symbol symbol-1">ᛉ</div>
+    <div class="ancient-symbol symbol-2">ᛟ</div>
+    <div class="ancient-symbol symbol-3">ᚨ</div>
+    <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('faq')}"></div>
+
+<main class="main">
+    <div class="container">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="/">Главная</a> <span>/</span> <span>FAQ</span>
+        </div>
+
+        <!-- Заголовок -->
+        <section class="page-header">
+            <h1 class="page-title">Часто задаваемые <span class="gradient-text">вопросы</span></h1>
+            <p class="page-description">
+                Древние свитки знаний Loregard. Здесь собраны ответы на самые частые вопросы
+                искателей приключений.
+            </p>
+        </section>
+
+        <!-- Категории вопросов -->
+        <div class="faq-categories">
+            <button class="category-btn active" data-category="all">Все вопросы</button>
+            <button class="category-btn" data-category="game">Игровые</button>
+            <button class="category-btn" data-category="bank">Банк</button>
+            <button class="category-btn" data-category="guilds">Гильдии</button>
+            <button class="category-btn" data-category="technical">Технические</button>
+        </div>
+
+        <!-- Список вопросов -->
+        <div class="faq-list">
+            <!-- ВОПРОС 1: О проекте -->
+            <div class="faq-item" data-category="game">
+                <div class="faq-question">
+                    <span class="faq-icon">❓</span>
+                    <h3 class="faq-title">Что такое Loregard?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Loregard — это фэнтезийный мир в Minecraft, где каждый игрок может стать героем
+                        эпической легенды. Мы объединили лучшие механики ММО-проектов с безграничными
+                        возможностями Minecraft. Исследуй миры, сражайся с монстрами, развивай персонажа
+                        и вписывай своё имя в историю.
+                    </p>
+                    <p>Больше информации на странице <a href="/about">«О проекте»</a>.</p>
+                </div>
+            </div>
+
+            <!-- ВОПРОС 2: Как начать играть -->
+            <div class="faq-item" data-category="game">
+                <div class="faq-question">
+                    <span class="faq-icon">⚔️</span>
+                    <h3 class="faq-title">Как начать играть на сервере?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Чтобы начать приключение в Loregard:</p>
+                    <ol>
+                        <li>Установи Minecraft версии 1.20+</li>
+                        <li>Скачай и установи наш модпак (ссылка в разделе «Играть»)</li>
+                        <li>Зарегистрируйся на сайте</li>
+                        <li>Подключись к серверу по адресу <strong>play.loregard.ru</strong></li>
+                    </ol>
+                    <p>Подробная инструкция есть на главной странице.</p>
+                </div>
+            </div>
+
+            <!-- ВОПРОС 3: Правила -->
+            <div class="faq-item" data-category="game">
+                <div class="faq-question">
+                    <span class="faq-icon">📜</span>
+                    <h3 class="faq-title">Где найти правила сервера?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Полный свод законов Loregard находится в разделе
+                        <a href="/rules">«Правила»</a>. Там описаны нормы общения, игровые правила
+                        и запрещённые модификации. Настоятельно рекомендуем ознакомиться перед началом игры.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ВОПРОС 4: Кристаллы и валюта -->
+            <div class="faq-item" data-category="bank">
+                <div class="faq-question">
+                    <span class="faq-icon">💎</span>
+                    <h3 class="faq-title">Что такое кристаллы и как их получить?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Кристаллы — основная валюта Loregard. Их можно получить:
+                    </p>
+                    <ul>
+                        <li>За убийство монстров и боссов</li>
+                        <li>За выполнение квестов</li>
+                        <li>На PvP-аренах</li>
+                        <li>Обменяв у других игроков</li>
+                        <li>Купить за донат (пополнение баланса)</li>
+                    </ul>
+                    <p>Все финансовые операции проводятся через <a href="/bank">Кристальный банк</a>.</p>
+                </div>
+            </div>
+
+            <!-- ВОПРОС 5: Как платить -->
+            <div class="faq-item" data-category="bank">
+                <div class="faq-question">
+                    <span class="faq-icon">💰</span>
+                    <h3 class="faq-title">Как платить за внутриигровые услуги?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Все финансовые операции в Loregard проводятся через
+                        <a href="/bank">Кристальный банк</a>. В банке ты можешь:
+                    </p>
+                    <ul>
+                        <li>Открыть счёт (бесплатно)</li>
+                        <li>Переводить кристаллы другим игрокам</li>
+                        <li>Оплачивать услуги (аренда земли, покупка в магазинах)</li>
+                        <li>Получать проценты на остаток</li>
+                        <li>Обменивать валюты между мирами</li>
+                    </ul>
+                    <p>Банк интегрирован со всеми игровыми системами — просто выбери "Оплатить кристаллами".</p>
+                </div>
+            </div>
+
+            <!-- ВОПРОС 6: Гильдии -->
+            <div class="faq-item" data-category="guilds">
+                <div class="faq-question">
+                    <span class="faq-icon">🏰</span>
+                    <h3 class="faq-title">Как создать или вступить в гильдию?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Гильдии — основа сообщества Loregard. Чтобы найти гильдию, зайди в раздел
+                        <a href="/guilds">«Гильдии»</a>. Там ты увидишь все активные объединения,
+                        их уровень, состав и требования.
+                    </p>
+                    <p>
+                        Чтобы создать свою гильдию, нужно накопить 5000 кристаллов и выполнить
+                        специальный квест. Подробности в игре у Хранителя гильдий.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ВОПРОС 7: ТОП и рейтинги -->
+            <div class="faq-item" data-category="game">
+                <div class="faq-question">
+                    <span class="faq-icon">🏆</span>
+                    <h3 class="faq-title">Как попасть в ТОП игроков?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Рейтинги обновляются автоматически каждый час. Ты можешь попасть в различные категории:
+                    </p>
+                    <ul>
+                        <li><strong>Богатейшие</strong> — по количеству кристаллов</li>
+                        <li><strong>Сильнейшие</strong> — по уровню персонажа</li>
+                        <li><strong>PvP</strong> — по победам на аренах</li>
+                        <li><strong>Гильдии</strong> — по общей мощи объединения</li>
+                    </ul>
+                    <p>Следи за рейтингом на странице <a href="/top">«ТОП игроков»</a>.</p>
+                </div>
+            </div>
+
+            <!-- ВОПРОС 8: Бан-лист -->
+            <div class="faq-item" data-category="technical">
+                <div class="faq-question">
+                    <span class="faq-icon">🚫</span>
+                    <h3 class="faq-title">Меня забанили. Что делать?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Актуальный список забаненных игроков с причинами и сроками находится в разделе
+                        <a href="/banlist">«Бан-лист»</a>. Там же указаны правила, за нарушение которых
+                        можно получить блокировку.
+                    </p>
+                    <p>
+                        Если ты считаешь, что бан выдан ошибочно, напиши в техподдержку через форму
+                        на сайте или в Discord. Рассмотрение занимает до 24 часов.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ВОПРОС 9: Технические проблемы -->
+            <div class="faq-item" data-category="technical">
+                <div class="faq-question">
+                    <span class="faq-icon">⚡</span>
+                    <h3 class="faq-title">У меня лаги/вылетает игра. Что делать?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Попробуй следующие решения:
+                    </p>
+                    <ul>
+                        <li>Проверь версию Minecraft и модпака</li>
+                        <li>Выдели больше оперативной памяти (рекомендуется 4-6 ГБ)</li>
+                        <li>Закрой лишние программы</li>
+                        <li>Проверь пинг до сервера</li>
+                        <li>Обнови драйверы видеокарты</li>
+                    </ul>
+                    <p>
+                        Если ничего не помогло, напиши в техподдержку с указанием версии ОС,
+                        Java и скриншота ошибки.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ВОПРОС 10: Форум -->
+            <div class="faq-item" data-category="game">
+                <div class="faq-question">
+                    <span class="faq-icon">💬</span>
+                    <h3 class="faq-title">Где общаться с другими игроками?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        У нас есть несколько площадок для общения:
+                    </p>
+                    <ul>
+                        <li><strong><a href="/forum">Форум</a></strong> — для обсуждения обновлений, гайдов и событий</li>
+                        <li><strong>Discord</strong> — для живого общения (ссылка в подвале сайта)</li>
+                        <li><strong>Внутриигровой чат</strong> — для общения в игре</li>
+                    </ul>
+                    <p>В дискорде и на форуме действуют те же правила общения, что и в игре.</p>
+                </div>
+            </div>
+
+            <!-- ВОПРОС 11: Обновления -->
+            <div class="faq-item" data-category="technical">
+                <div class="faq-question">
+                    <span class="faq-icon">📢</span>
+                    <h3 class="faq-title">Где смотреть новости и обновления?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        Все новости мира Loregard публикуются на <a href="/">главной странице</a> сайта.
+                        Там ты найдёшь анонсы событий, информацию об обновлениях и важные объявления.
+                    </p>
+                    <p>
+                        Также подпишись на наши социальные сети (VK, Telegram, Discord),
+                        чтобы не пропустить ничего важного.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок "Не нашли ответ?" -->
+        <section class="faq-contact">
+            <div class="contact-card">
+                <div class="contact-icon">❓</div>
+                <h2 class="contact-title">Не нашли ответ на свой вопрос?</h2>
+                <p class="contact-text">
+                    Напишите нам в техподдержку или загляните на форум — там уже могли обсуждать вашу проблему.
+                </p>
+                <div class="contact-buttons">
+                    <a href="#" class="btn btn-primary">Техподдержка</a>
+                    <a href="/forum" class="btn btn-outline">Форум</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+        document.querySelector('.nav').classList.toggle('active');
+    });
+
+    // Аккордеон для FAQ
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+
+            // Закрыть все остальные
+            document.querySelectorAll('.faq-item').forEach(i => {
+                if (i !== item) {
+                    i.classList.remove('active');
+                }
+            });
+
+            // Переключить текущий
+            item.classList.toggle('active');
+        });
+    });
+
+    // Фильтр по категориям
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Переключить активную кнопку
+            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const category = btn.getAttribute('data-category');
+
+            // Показать/скрыть вопросы
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (category === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    if (item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаунчер | Loregard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/play.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+    <div class="rune rune-1"></div>
+    <div class="rune rune-2"></div>
+    <div class="rune rune-3"></div>
+    <div class="rune rune-4"></div>
+    <div class="mist mist-1"></div>
+    <div class="mist mist-2"></div>
+    <div class="ancient-symbol symbol-1">ᛉ</div>
+    <div class="ancient-symbol symbol-2">ᛟ</div>
+    <div class="ancient-symbol symbol-3">ᚨ</div>
+    <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('launcher')}"></div>
+
+<main class="main">
+    <div class="container">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="/">Главная</a> <span>/</span> <span>Лаунчер</span>
+        </div>
+
+        <!-- Геройский блок -->
+        <section class="launcher-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Врата в <span class="gradient-text">Loregard</span></h1>
+                <p class="hero-description">
+                    Скачай официальный лаунчер и открой портал в мир магии, сражений
+                    и древних легенд. Только через него ты сможешь попасть в наши земли.
+                </p>
+            </div>
+            <div class="hero-decoration">
+                <div class="portal"></div>
+            </div>
+        </section>
+
+        <!-- Основной блок с лаунчером -->
+        <section class="launcher-main">
+            <div class="launcher-card">
+                <div class="launcher-icon">⚔️</div>
+                <h2 class="launcher-title">Loregard Launcher</h2>
+
+                <div class="launcher-version">
+                    <span class="version-label">Актуальная версия:</span>
+                    <span class="version-number">1.0.0-B</span>
+                </div>
+
+                <div class="launcher-features">
+                    <div class="feature">
+                        <span class="feature-icon">✅</span>
+                        <span>Автоматическая установка модов</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✅</span>
+                        <span>Встроенный банк и профиль</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✅</span>
+                        <span>Автообновление</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✅</span>
+                        <span>Поддержка всех миров Loregard</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✅</span>
+                        <span>Низкое потребление памяти</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✅</span>
+                        <span>Встроенный чат и друзья</span>
+                    </div>
+                </div>
+
+                <div class="launcher-download">
+                    <div class="download-badge">⚡ Последняя версия ⚡</div>
+                    <div class="download-buttons">
+                        <a href="#" class="btn btn-primary btn-download">
+                            <span class="btn-text">Скачать для Windows</span>
+                            <span class="btn-icon">⬇️</span>
+                        </a>
+                        <a href="#" class="btn btn-outline btn-download">
+                            <span class="btn-text">Скачать для Linux</span>
+                            <span class="btn-icon">⬇️</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="launcher-size">
+                    <span>Размер: 245 MB</span>
+                    <span>•</span>
+                    <span>SHA-256: 7d8f...e3a2</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Системные требования -->
+        <section class="requirements">
+            <h2 class="section-title">Системные <span class="gradient-text">требования</span></h2>
+
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <div class="requirement-icon">💻</div>
+                    <h3 class="requirement-title">Минимальные</h3>
+                    <ul class="requirement-list">
+                        <li>ОС: Windows 10 / macOS 11 / Linux</li>
+                        <li>Процессор: Intel Core i3 или аналог</li>
+                        <li>ОЗУ: 4 GB</li>
+                        <li>Видеокарта: Intel HD Graphics</li>
+                        <li>Место на диске: 1 GB</li>
+                        <li>Интернет: от 10 Mbps</li>
+                    </ul>
+                </div>
+
+                <div class="requirement-card recommended">
+                    <div class="requirement-icon">⚡</div>
+                    <h3 class="requirement-title">Рекомендуемые</h3>
+                    <ul class="requirement-list">
+                        <li>ОС: Windows 11 / macOS 14 / Linux</li>
+                        <li>Процессор: Intel Core i5 или AMD Ryzen 5</li>
+                        <li>ОЗУ: 8 GB</li>
+                        <li>Видеокарта: NVIDIA GeForce GTX 1060</li>
+                        <li>Место на диске: 2 GB</li>
+                        <li>Интернет: от 50 Mbps</li>
+                    </ul>
+                    <div class="recommended-badge">Рекомендуется</div>
+                </div>
+
+                <div class="requirement-card">
+                    <div class="requirement-icon">🚀</div>
+                    <h3 class="requirement-title">Оптимальные</h3>
+                    <ul class="requirement-list">
+                        <li>ОС: Windows 11 / macOS 15 / Linux</li>
+                        <li>Процессор: Intel Core i7 или AMD Ryzen 7</li>
+                        <li>ОЗУ: 16 GB</li>
+                        <li>Видеокарта: NVIDIA GeForce RTX 3060</li>
+                        <li>Место на диске: 3 GB</li>
+                        <li>Интернет: от 100 Mbps</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Инструкция по установке -->
+        <section class="instructions">
+            <h2 class="section-title">Как <span class="gradient-text">установить</span></h2>
+
+            <div class="instructions-grid">
+                <div class="instruction-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Скачай лаунчер</h3>
+                    <p class="step-description">
+                        Нажми на кнопку скачивания для своей операционной системы.
+                        Файл весит всего 245 MB.
+                    </p>
+                </div>
+
+                <div class="instruction-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Установи приложение</h3>
+                    <p class="step-description">
+                        Запусти установочный файл и следуй инструкциям.
+                        Лаунчер установится за пару минут.
+                    </p>
+                </div>
+
+                <div class="instruction-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Войди в аккаунт</h3>
+                    <p class="step-description">
+                        Используй свои данные от сайта Loregard.
+                        Если нет аккаунта — зарегистрируйся прямо в лаунчере.
+                    </p>
+                </div>
+
+                <div class="instruction-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Начни приключение!</h3>
+                    <p class="step-description">
+                        Выбери мир и нажми "Играть". Лаунчер сам скачает все нужные моды
+                        и подключит тебя к серверу.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ по лаунчеру -->
+        <section class="launcher-faq">
+            <h2 class="section-title">Частые <span class="gradient-text">вопросы</span></h2>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">❓ Почему нужен именно ваш лаунчер?</h3>
+                    <p class="faq-answer">
+                        Наш лаунчер автоматически устанавливает все необходимые моды и текстуры,
+                        обеспечивает защиту от читов и даёт доступ к эксклюзивному контенту Loregard.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">❓ Лаунчер бесплатный?</h3>
+                    <p class="faq-answer">
+                        Да, лаунчер полностью бесплатен. Вы можете скачать его и играть без
+                        каких-либо ограничений. Донат открывает только косметические возможности.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">❓ А если у меня старый компьютер?</h3>
+                    <p class="faq-answer">
+                        Лаунчер оптимизирован для слабых ПК. На минимальных настройках игра
+                        пойдёт даже на встроенной графике.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">❓ Можно играть без лаунчера?</h3>
+                    <p class="faq-answer">
+                        Нет, доступ к серверам Loregard возможен только через официальный лаунчер.
+                        Это обеспечивает защиту от читов и стабильность соединения.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">❓ Как обновлять лаунчер?</h3>
+                    <p class="faq-answer">
+                        Лаунчер обновляется автоматически. При выходе новой версии он сам скачает
+                        необходимые файлы при следующем запуске.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">❓ Есть версия для телефонов?</h3>
+                    <p class="faq-answer">
+                        Пока нет, но мы работаем над мобильным лаунчером. Следи за новостями!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Призыв скачать -->
+        <section class="download-cta">
+            <div class="cta-content">
+                <h2 class="cta-title">Готов войти в портал?</h2>
+                <p class="cta-description">
+                    Скачай лаунчер прямо сейчас и стань частью легенды Loregard!
+                </p>
+                <a href="#" class="btn btn-primary btn-large">
+                    <span class="btn-text">Скачать лаунчер</span>
+                    <span class="btn-icon">⬇️</span>
+                </a>
+                <div class="cta-runes">
+                    <span>ᚠ</span>
+                    <span>ᚢ</span>
+                    <span>ᚦ</span>
+                    <span>ᚨ</span>
+                    <span>ᚱ</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+        document.querySelector('.nav').classList.toggle('active');
+    });
+</script>
+</body>
+</html>

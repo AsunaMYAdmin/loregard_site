@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты | Loregard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/contacts.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+  <div class="rune rune-1"></div>
+  <div class="rune rune-2"></div>
+  <div class="rune rune-3"></div>
+  <div class="rune rune-4"></div>
+  <div class="mist mist-1"></div>
+  <div class="mist mist-2"></div>
+  <div class="ancient-symbol symbol-1">ᛉ</div>
+  <div class="ancient-symbol symbol-2">ᛟ</div>
+  <div class="ancient-symbol symbol-3">ᚨ</div>
+  <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('contacts')}"></div>
+
+<main class="main">
+  <div class="container">
+    <!-- Хлебные крошки -->
+    <div class="breadcrumbs">
+      <a href="/">Главная</a> <span>/</span> <span>Контакты</span>
+    </div>
+
+    <!-- Заголовок -->
+    <section class="page-header">
+      <h1 class="page-title">Связь с <span class="gradient-text">Loregard</span></h1>
+      <p class="page-description">
+        Древние каналы связи с хранителями миров. Выбери удобный способ связаться с нами.
+      </p>
+    </section>
+
+    <!-- Создатель (выделенный ник) -->
+    <section class="creator-section">
+      <div class="creator-card">
+        <div class="creator-icon">⚔️</div>
+        <div class="creator-info">
+          <span class="creator-label">Создатель проекта</span>
+          <h2 class="creator-name">Asuna's Knight</h2>
+          <p class="creator-title">Верховный хранитель Loregard</p>
+        </div>
+        <div class="creator-decoration">
+          <span class="rune-sign">ᚨᛋᚢᚾᚨ</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Сетка контактов -->
+    <div class="contacts-grid">
+      <!-- Социальные сети (кликабельные карточки) -->
+      <a href="#" class="contact-card discord">
+        <div class="contact-icon">💬</div>
+        <div class="contact-content">
+          <h3 class="contact-title">Discord</h3>
+          <p class="contact-description">Основное место общения. Задавай вопросы, общайся с игроками, участвуй в ивентах.</p>
+          <span class="contact-link">discord.gg/loregard</span>
+        </div>
+      </a>
+
+      <a href="#" class="contact-card telegram">
+        <div class="contact-icon">📱</div>
+        <div class="contact-content">
+          <h3 class="contact-title">Telegram</h3>
+          <p class="contact-description">Новости, анонсы и оперативная информация. Подпишись, чтобы не пропустить.</p>
+          <span class="contact-link">t.me/loregard</span>
+        </div>
+      </a>
+
+      <a href="#" class="contact-card vk">
+        <div class="contact-icon">📘</div>
+        <div class="contact-content">
+          <h3 class="contact-title">ВКонтакте</h3>
+          <p class="contact-description">Наше сообщество в VK. Посты, конкурсы, обсуждения.</p>
+          <span class="contact-link">vk.com/loregard</span>
+        </div>
+      </a>
+
+      <a href="#" class="contact-card youtube">
+        <div class="contact-icon">▶️</div>
+        <div class="contact-content">
+          <h3 class="contact-title">YouTube</h3>
+          <p class="contact-description">Трейлеры, гайды, записи ивентов и стримы.</p>
+          <span class="contact-link">youtube.com/@loregard</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Блок связи с техподдержкой (обновлённый) -->
+    <section class="support-section">
+      <div class="support-grid">
+        <!-- Карточка-призыв к техподдержке -->
+        <div class="support-card">
+          <h2 class="support-title">Техническая поддержка</h2>
+          <p class="support-description">
+            Нужна помощь? Наши хранители готовы ответить на любые вопросы о проекте,
+            решить проблемы с подключением, аккаунтом или платежами.
+          </p>
+          <div class="support-features">
+            <div class="feature">
+              <span class="feature-icon">✓</span>
+              <span>Ответ за 24 часа</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">✓</span>
+              <span>Помощь с аккаунтом</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">✓</span>
+              <span>Решение технических проблем</span>
+            </div>
+            <div class="feature">
+              <span class="feature-icon">✓</span>
+              <span>Приём жалоб</span>
+            </div>
+          </div>
+          <a href="/support" class="btn btn-primary btn-large">
+            <span>Перейти в техподдержку</span>
+            <span class="btn-icon">⟶</span>
+          </a>
+        </div>
+
+        <!-- Альтернативные контакты (оставляем как было) -->
+        <div class="support-alternative">
+          <div class="alternative-card">
+            <h3 class="alternative-title">⚡ Экстренная связь</h3>
+            <p class="alternative-text">
+              Если сервер не работает или случилось что-то критическое — пиши в Discord или Telegram.
+            </p>
+            <div class="alternative-links">
+              <a href="#" class="alternative-link">Discord</a>
+              <a href="#" class="alternative-link">Telegram</a>
+            </div>
+          </div>
+
+          <div class="alternative-card">
+            <h3 class="alternative-title">📧 Email для предложений</h3>
+            <p class="alternative-text">
+              Для деловых предложений и сотрудничества:
+            </p>
+            <a href="mailto:team@loregard.ru" class="email-link">team@loregard.ru</a>
+          </div>
+
+          <div class="alternative-card">
+            <h3 class="alternative-title">⏳ Время ответа</h3>
+            <p class="alternative-text">
+              Обычно мы отвечаем в течение 24 часов. В выходные может потребоваться больше времени — хранители тоже отдыхают.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Часы работы (для атмосферы) -->
+    <section class="hours-section">
+      <div class="hours-card">
+        <div class="hours-icon">⏳</div>
+        <div class="hours-content">
+          <h3 class="hours-title">Время работы хранителей</h3>
+          <p class="hours-text">
+            Администрация онлайн ежедневно с 10:00 до 22:00 по московскому времени.
+            В остальное время можно писать в Discord — кто-нибудь обязательно ответит.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+  document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+    document.querySelector('.nav').classList.toggle('active');
+  });
+
+  // Простая валидация формы (для демонстрации)
+  document.querySelector('.form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Сообщение отправлено! Хранители получат его в ближайшее время.');
+  });
+</script>
+</body>
+</html>

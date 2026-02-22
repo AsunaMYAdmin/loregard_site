@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бан-лист | Loregard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/banlist.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+    <div class="rune rune-1"></div>
+    <div class="rune rune-2"></div>
+    <div class="rune rune-3"></div>
+    <div class="rune rune-4"></div>
+    <div class="mist mist-1"></div>
+    <div class="mist mist-2"></div>
+    <div class="ancient-symbol symbol-1">ᛉ</div>
+    <div class="ancient-symbol symbol-2">ᛟ</div>
+    <div class="ancient-symbol symbol-3">ᚨ</div>
+    <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('banlist')}"></div>
+
+<main class="main">
+    <div class="container">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="/">Главная</a> <span>/</span> <span>Бан-лист</span>
+        </div>
+
+        <!-- Заголовок -->
+        <section class="page-header">
+            <h1 class="page-title">Бан-лист <span class="gradient-text">Loregard</span></h1>
+            <p class="page-description">
+                Список нарушителей, изгнанных из миров Loregard. Здесь отмечены те,
+                кто нарушил древние законы и понёс наказание.
+            </p>
+        </section>
+
+        <!-- Счётчик и поиск -->
+        <div class="ban-controls">
+            <div class="ban-counter">
+                <span class="counter-label">Всего записей:</span>
+                <span class="counter-value">247</span>
+                <span class="counter-decoration">⚔️</span>
+            </div>
+
+            <div class="search-container">
+                <div class="magic-search">
+                    <label>
+                        <input type="text" placeholder="Поиск по нику..." class="magic-search-input">
+                    </label>
+                    <button class="magic-search-btn">
+                        <span>Найти</span>
+                        <span class="btn-icon">⟶</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Таблица банов -->
+        <div class="ban-table">
+            <div class="ban-table-header">
+                <div class="ban-cell">Ник</div>
+                <div class="ban-cell">Тип</div>
+                <div class="ban-cell">Причина</div>
+                <div class="ban-cell">Дата</div>
+                <div class="ban-cell">Срок</div>
+                <div class="ban-cell">Разбанит</div>
+            </div>
+            <div class="ban-table-body">
+                <!-- DarkKiller99 -->
+                <div class="ban-row ban-game">
+                    <div class="ban-cell" data-label="Ник">DarkKiller99</div>
+                    <div class="ban-cell" data-label="Тип">
+                        <span class="ban-type game">Игровой</span>
+                    </div>
+                    <div class="ban-cell" data-label="Причина">Использование читов (X-Ray)</div>
+                    <div class="ban-cell" data-label="Дата">15.02.2026</div>
+                    <div class="ban-cell" data-label="Срок"><span class="ban-duration temp">14 дней</span></div>
+                    <div class="ban-cell" data-label="Разбанит">01.03.2026</div>
+                </div>
+
+                <!-- GriefMaster -->
+                <div class="ban-row ban-game">
+                    <div class="ban-cell" data-label="Ник">GriefMaster</div>
+                    <div class="ban-cell" data-label="Тип">
+                        <span class="ban-type game">Игровой</span>
+                    </div>
+                    <div class="ban-cell" data-label="Причина">Гриферство (разрушение 15+ построек)</div>
+                    <div class="ban-cell" data-label="Дата">10.01.2026</div>
+                    <div class="ban-cell" data-label="Срок"><span class="ban-duration permanent">Навсегда</span></div>
+                    <div class="ban-cell" data-label="Разбанит">—</div>
+                </div>
+
+                <!-- ToxicPlayer -->
+                <div class="ban-row ban-account">
+                    <div class="ban-cell" data-label="Ник">ToxicPlayer</div>
+                    <div class="ban-cell" data-label="Тип">
+                        <span class="ban-type account">Аккаунт</span>
+                        <span class="ban-subtype freeze">Заморозка</span>
+                    </div>
+                    <div class="ban-cell" data-label="Причина">Оскорбления, токсичное поведение</div>
+                    <div class="ban-cell" data-label="Дата">20.02.2026</div>
+                    <div class="ban-cell" data-label="Срок"><span class="ban-duration temp">7 дней</span></div>
+                    <div class="ban-cell" data-label="Разбанит">27.02.2026</div>
+                </div>
+
+                <!-- Hacker2000 -->
+                <div class="ban-row ban-account">
+                    <div class="ban-cell" data-label="Ник">Hacker2000</div>
+                    <div class="ban-cell" data-label="Тип">
+                        <span class="ban-type account">Аккаунт</span>
+                        <span class="ban-subtype full">Блокировка</span>
+                    </div>
+                    <div class="ban-cell" data-label="Причина">Использование читов, мультиаккаунтинг</div>
+                    <div class="ban-cell" data-label="Дата">05.12.2025</div>
+                    <div class="ban-cell" data-label="Срок"><span class="ban-duration permanent">Навсегда</span></div>
+                    <div class="ban-cell" data-label="Разбанит">—</div>
+                </div>
+
+                <!-- NoobSlayer -->
+                <div class="ban-row ban-game">
+                    <div class="ban-cell" data-label="Ник">NoobSlayer</div>
+                    <div class="ban-cell" data-label="Тип">
+                        <span class="ban-type game">Игровой</span>
+                    </div>
+                    <div class="ban-cell" data-label="Причина">Оскорбления в чате</div>
+                    <div class="ban-cell" data-label="Дата">22.02.2026</div>
+                    <div class="ban-cell" data-label="Срок"><span class="ban-duration temp">3 дня</span></div>
+                    <div class="ban-cell" data-label="Разбанит">25.02.2026</div>
+                </div>
+
+                <!-- Scammer -->
+                <div class="ban-row ban-account">
+                    <div class="ban-cell" data-label="Ник">Scammer</div>
+                    <div class="ban-cell" data-label="Тип">
+                        <span class="ban-type account">Аккаунт</span>
+                        <span class="ban-subtype freeze">Заморозка</span>
+                    </div>
+                    <div class="ban-cell" data-label="Причина">Обман при торговле, мошенничество</div>
+                    <div class="ban-cell" data-label="Дата">18.02.2026</div>
+                    <div class="ban-cell" data-label="Срок"><span class="ban-duration temp">30 дней</span></div>
+                    <div class="ban-cell" data-label="Разбанит">20.03.2026</div>
+                </div>
+
+                <!-- DDoS_King -->
+                <div class="ban-row ban-game">
+                    <div class="ban-cell" data-label="Ник">DDoS_King</div>
+                    <div class="ban-cell" data-label="Тип">
+                        <span class="ban-type game">Игровой</span>
+                    </div>
+                    <div class="ban-cell" data-label="Причина">DDoS-атака на сервер</div>
+                    <div class="ban-cell" data-label="Дата">01.01.2026</div>
+                    <div class="ban-cell" data-label="Срок"><span class="ban-duration permanent">Навсегда</span></div>
+                    <div class="ban-cell" data-label="Разбанит">—</div>
+                </div>
+
+                <!-- BotFarm -->
+                <div class="ban-row ban-account">
+                    <div class="ban-cell" data-label="Ник">BotFarm</div>
+                    <div class="ban-cell" data-label="Тип">
+                        <span class="ban-type account">Аккаунт</span>
+                        <span class="ban-subtype full">Блокировка</span>
+                    </div>
+                    <div class="ban-cell" data-label="Причина">Использование ботов, накрутка</div>
+                    <div class="ban-cell" data-label="Дата">12.02.2026</div>
+                    <div class="ban-cell" data-label="Срок"><span class="ban-duration permanent">Навсегда</span></div>
+                    <div class="ban-cell" data-label="Разбанит">—</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Красивая пагинация -->
+        <div class="pagination-container">
+            <div class="pagination-info">
+                <span class="showing">Показано 1-8 из 247</span>
+            </div>
+            <div class="pagination">
+                <a href="#" class="page-prev disabled">←</a>
+                <div class="page-numbers">
+                    <a href="#" class="page-number active">1</a>
+                    <a href="#" class="page-number">2</a>
+                    <a href="#" class="page-number">3</a>
+                    <a href="#" class="page-number">4</a>
+                    <a href="#" class="page-number">5</a>
+                    <span class="page-dots">...</span>
+                    <a href="#" class="page-number">10</a>
+                </div>
+                <a href="#" class="page-next">→</a>
+            </div>
+        </div>
+
+
+        <!-- Типы наказаний -->
+        <section class="ban-types">
+            <h2 class="types-title">Типы <span class="gradient-text">наказаний</span></h2>
+
+            <div class="types-grid">
+                <!-- Игровой бан -->
+                <div class="type-card game">
+                    <div class="type-icon">⚔️</div>
+                    <h3 class="type-name game">Игровой бан</h3>
+                    <p class="type-description">
+                        Блокируется доступ к игровым серверам, но аккаунт на сайте
+                        и банк остаются доступны. Можно общаться на форуме.
+                    </p>
+                    <div class="type-examples">
+                        <span class="examples-label">Примеры:</span>
+                        <span class="examples-list">Читы, гриферство, оскорбления в чате</span>
+                    </div>
+                </div>
+
+                <!-- Временная заморозка -->
+                <div class="type-card freeze">
+                    <div class="type-icon">❄️</div>
+                    <h3 class="type-name freeze">Временная заморозка</h3>
+                    <p class="type-description">
+                        Полная блокировка аккаунта на определённый срок.
+                        После окончания срока доступ восстанавливается автоматически.
+                    </p>
+                    <div class="type-examples">
+                        <span class="examples-label">Примеры:</span>
+                        <span class="examples-list">Токсичность, мелкое мошенничество</span>
+                    </div>
+                </div>
+
+                <!-- Полная блокировка -->
+                <div class="type-card block">
+                    <div class="type-icon">🔒</div>
+                    <h3 class="type-name block">Полная блокировка</h3>
+                    <p class="type-description">
+                        Навсегда блокируется весь аккаунт, включая доступ к сайту,
+                        банку и форуму. Восстановление невозможно.
+                    </p>
+                    <div class="type-examples">
+                        <span class="examples-label">Примеры:</span>
+                        <span class="examples-list">Тяжёлые читы, DDoS, реальные угрозы</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Апелляция -->
+            <div class="appeal-section">
+                <p class="appeal-text">
+                    Считаешь, что бан выдан ошибочно? Наши хранители всегда готовы
+                    пересмотреть решение. Напиши нам, и мы разберём твою ситуацию.
+                </p>
+                <a href="/support" class="appeal-btn">
+                    <span>Подать апелляцию</span>
+                    <span class="btn-icon">⟶</span>
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+        document.querySelector('.nav').classList.toggle('active');
+    });
+
+    // Поиск (демо)
+    document.querySelector('.magic-search-btn')?.addEventListener('click', function() {
+        const query = document.querySelector('.magic-search-input').value;
+        if (query) alert('Поиск по нику: ' + query);
+    });
+
+    // Поиск по Enter
+    document.querySelector('.magic-search-input')?.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            document.querySelector('.magic-search-btn').click();
+        }
+    });
+</script>
+</body>
+</html>

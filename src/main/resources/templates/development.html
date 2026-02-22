@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форум | Loregard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/development.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+  <div class="rune rune-1"></div>
+  <div class="rune rune-2"></div>
+  <div class="rune rune-3"></div>
+  <div class="rune rune-4"></div>
+  <div class="mist mist-1"></div>
+  <div class="mist mist-2"></div>
+  <div class="ancient-symbol symbol-1">ᛉ</div>
+  <div class="ancient-symbol symbol-2">ᛟ</div>
+  <div class="ancient-symbol symbol-3">ᚨ</div>
+  <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('forum')}"></div>
+
+<main class="development-page">
+  <div class="container">
+    <!-- Хлебные крошки (маленькие сверху) -->
+    <div class="breadcrumbs">
+      <a href="/">Главная</a> <span>/</span> <span>В разработке</span>
+    </div>
+
+    <!-- Большой блок посередине -->
+    <div class="development-hero">
+      <div class="development-content">
+        <!-- Магический шар/кристалл -->
+        <div class="development-orb">
+          <div class="orb-core"></div>
+          <div class="orb-ring ring-1"></div>
+          <div class="orb-ring ring-2"></div>
+          <div class="orb-ring ring-3"></div>
+          <div class="orb-particles">
+            <span>⚔️</span>
+            <span>🛡️</span>
+            <span>🏹</span>
+            <span>🔮</span>
+          </div>
+        </div>
+
+        <!-- Текст -->
+        <h1 class="development-title">Раздел в разработке</h1>
+
+        <p class="development-subtitle">
+          Хранители Loregard ещё трудятся над этим разделом
+        </p>
+
+        <div class="development-divider">
+          <span class="divider-rune">ᚠ</span>
+          <span class="divider-rune">ᚢ</span>
+          <span class="divider-rune">ᚦ</span>
+          <span class="divider-rune">ᚨ</span>
+          <span class="divider-rune">ᚱ</span>
+        </div>
+
+        <p class="development-description">
+          Совсем скоро этот портал откроется и пустит искателей приключений
+          в новые земли, полные тайн и возможностей. Мы тщательно готовим
+          это место, чтобы оно стало настоящим домом для героев Loregard.
+        </p>
+
+        <!-- Прогресс-бар (для атмосферы) -->
+        <div class="development-progress">
+          <div class="progress-label">
+            <span>Готовность</span>
+            <span>76%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 76%"></div>
+          </div>
+        </div>
+
+        <!-- Кнопки -->
+        <div class="development-actions">
+          <a href="/" class="btn btn-primary btn-large">
+            <span>Вернуться на главную</span>
+            <span class="btn-icon">⟶</span>
+          </a>
+          <a href="/contacts" class="btn btn-outline btn-large">
+            <span>Связаться с хранителями</span>
+          </a>
+        </div>
+
+        <!-- Магическая подпись -->
+        <div class="development-signature">
+          <span>Да хранят вас древние руны</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+  document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+    document.querySelector('.nav').classList.toggle('active');
+  });
+</script>
+</body>
+</html>

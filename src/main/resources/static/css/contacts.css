@@ -1,0 +1,522 @@
+/* ========== СТРАНИЦА КОНТАКТЫ ========== */
+
+/* Секция создателя */
+.creator-section {
+    margin: 40px 0;
+}
+
+.creator-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(135deg, rgba(255, 140, 66, 0.2), rgba(58, 110, 165, 0.1));
+    border: 1px solid var(--orange-primary);
+    border-radius: var(--border-radius-xl);
+    padding: 30px 40px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.creator-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+    opacity: 0.3;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.creator-icon {
+    font-size: 64px;
+    filter: drop-shadow(0 0 20px var(--orange-primary));
+    position: relative;
+    z-index: 1;
+}
+
+.creator-info {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.creator-label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.creator-name {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--orange-primary);
+    text-shadow: 0 0 20px var(--orange-glow);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.creator-title {
+    font-size: 16px;
+    color: var(--text-secondary);
+}
+
+.creator-decoration {
+    position: relative;
+    z-index: 1;
+}
+
+.rune-sign {
+    font-size: 32px;
+    color: var(--orange-primary);
+    opacity: 0.5;
+    letter-spacing: 8px;
+}
+
+/* Сетка контактов */
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 40px 0;
+}
+
+.contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-xl);
+    padding: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-orange);
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-orange);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.contact-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Цвета для разных соцсетей */
+.contact-card.discord .contact-icon {
+    color: #5865F2;
+    filter: drop-shadow(0 0 10px #5865F2);
+}
+
+.contact-card.telegram .contact-icon {
+    color: #0088cc;
+    filter: drop-shadow(0 0 10px #0088cc);
+}
+
+.contact-card.vk .contact-icon {
+    color: #4a76a8;
+    filter: drop-shadow(0 0 10px #4a76a8);
+}
+
+.contact-card.youtube .contact-icon {
+    color: #ff0000;
+    filter: drop-shadow(0 0 10px #ff0000);
+}
+
+.contact-icon {
+    font-size: 40px;
+    min-width: 60px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.1);
+}
+
+.contact-content {
+    flex: 1;
+}
+
+.contact-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.contact-description {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.contact-link {
+    font-size: 14px;
+    color: var(--orange-light);
+    transition: all 0.3s;
+}
+
+.contact-card:hover .contact-link {
+    color: var(--orange-primary);
+}
+
+/* Секция поддержки */
+.support-section {
+    margin: 60px 0;
+}
+
+.support-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 30px;
+}
+
+/* Форма */
+.support-form {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-xl);
+    padding: 30px;
+}
+
+.support-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.support-description {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-orange);
+}
+
+.form-select {
+    cursor: pointer;
+}
+
+.form-select option {
+    background: var(--dark-bg);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Альтернативные контакты */
+.support-alternative {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.alternative-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-xl);
+    padding: 24px;
+    transition: all 0.3s;
+}
+
+.alternative-card:hover {
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-orange);
+}
+
+.alternative-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--orange-light);
+    margin-bottom: 12px;
+}
+
+.alternative-text {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.alternative-links {
+    display: flex;
+    gap: 12px;
+}
+
+.alternative-link {
+    color: var(--blue-light);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.alternative-link:hover {
+    color: var(--orange-primary);
+}
+
+.email-link {
+    display: inline-block;
+    color: var(--orange-light);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s;
+    padding: 8px 16px;
+    background: rgba(255, 140, 66, 0.1);
+    border-radius: var(--border-radius-md);
+}
+
+.email-link:hover {
+    background: var(--orange-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Часы работы */
+.hours-section {
+    margin: 40px 0;
+}
+
+.hours-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(135deg, rgba(58, 110, 165, 0.1), rgba(255, 140, 66, 0.1));
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-xl);
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.hours-icon {
+    font-size: 48px;
+    filter: drop-shadow(0 0 10px var(--blue-primary));
+}
+
+.hours-content {
+    flex: 1;
+}
+
+.hours-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.hours-text {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Адаптация */
+@media (max-width: 1024px) {
+    .support-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .creator-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .creator-name {
+        font-size: 32px;
+    }
+
+    .creator-decoration {
+        display: none;
+    }
+
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hours-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .creator-name {
+        font-size: 28px;
+    }
+
+    .creator-icon {
+        font-size: 48px;
+    }
+
+    .support-form {
+        padding: 20px;
+    }
+
+    .alternative-links {
+        flex-direction: column;
+    }
+
+    .hours-card {
+        padding: 20px;
+    }
+
+    /* Обновлённый блок поддержки */
+    .support-section {
+        margin: 60px 0;
+    }
+
+    .support-grid {
+        display: grid;
+        grid-template-columns: 1fr 0.8fr;
+        gap: 30px;
+    }
+
+    .support-card {
+        background: linear-gradient(135deg, rgba(255, 140, 66, 0.1), rgba(58, 110, 165, 0.1));
+        border: 1px solid rgba(255, 140, 66, 0.3);
+        border-radius: var(--border-radius-xl);
+        padding: 40px;
+        backdrop-filter: blur(10px);
+        text-align: center;
+    }
+
+    .support-icon {
+        font-size: 64px;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 20px var(--orange-primary));
+    }
+
+    .support-title {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .support-description {
+        color: var(--text-secondary);
+        margin-bottom: 30px;
+        line-height: 1.8;
+    }
+
+    .support-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-bottom: 30px;
+        text-align: left;
+    }
+
+    .feature {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-secondary);
+        font-size: 14px;
+    }
+
+    .feature-icon {
+        color: var(--orange-primary);
+        font-weight: bold;
+    }
+
+    /* Адаптация */
+    @media (max-width: 1024px) {
+        .support-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .support-card {
+            padding: 30px 20px;
+        }
+
+        .support-features {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .support-title {
+            font-size: 24px;
+        }
+    }
+}

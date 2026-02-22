@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТОП игроков | Loregard</title>
+    <link rel="stylesheet" href="/css/heroes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+    <div class="rune rune-1"></div>
+    <div class="rune rune-2"></div>
+    <div class="rune rune-3"></div>
+    <div class="rune rune-4"></div>
+    <div class="mist mist-1"></div>
+    <div class="mist mist-2"></div>
+    <div class="ancient-symbol symbol-1">ᛉ</div>
+    <div class="ancient-symbol symbol-2">ᛟ</div>
+    <div class="ancient-symbol symbol-3">ᚨ</div>
+    <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('top')}"></div>
+
+<main class="top">
+    <div class="container">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="/">Главная</a> <span>/</span> <span>ТОП</span>
+        </div>
+
+        <!-- Заголовок -->
+        <section class="top-header">
+            <div class="header-content">
+                <h1 class="header-title">Зал <span class="gradient-text">Славы</span></h1>
+                <p class="header-description">
+                    Величайшие герои Loregard, чьи имена вписаны в древние скрижали.
+                    Лишь лучшие из лучших удостаиваются места в этом списке.
+                </p>
+            </div>
+            <div class="header-decoration">
+                <div class="trophy-icon">🏆</div>
+            </div>
+        </section>
+
+        <!-- Вкладки -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="wealth">💰 Богатейшие</button>
+            <button class="tab-btn" data-tab="power">⚔️ Сильнейшие</button>
+            <button class="tab-btn" data-tab="guilds">🏰 Гильдии</button>
+            <button class="tab-btn" data-tab="pvp">⚡ PvP</button>
+            <button class="tab-btn" data-tab="quests">📜 Квесты</button>
+        </div>
+
+        <!-- ТОП Богатейших -->
+        <div class="tab-content active" id="wealth">
+            <div class="top-table">
+                <div class="table-header">
+                    <div class="rank">#</div>
+                    <div class="player">Игрок</div>
+                    <div class="value">Кристаллы</div>
+                    <div class="guild">Гильдия</div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row top-1">
+                        <div class="rank">
+                            <span class="medal">🥇</span>
+                            <span class="rank-number">1</span>
+                        </div>
+                        <div class="player">
+                            <span class="player-name">ShadowDragon</span>
+                            <span class="player-title">Владыка Теней</span>
+                        </div>
+                        <div class="value">1,254,800</div>
+                        <div class="guild">
+                            <a href="/guild/1" class="guild-link">Серебряные драконы</a>
+                        </div>
+                    </div>
+                    <div class="table-row top-2">
+                        <div class="rank">
+                            <span class="medal">🥈</span>
+                            <span class="rank-number">2</span>
+                        </div>
+                        <div class="player">
+                            <span class="player-name">MoonElf</span>
+                            <span class="player-title">Хранительница леса</span>
+                        </div>
+                        <div class="value">987,500</div>
+                        <div class="guild">
+                            <a href="/guild/2" class="guild-link">Лунные стражи</a>
+                        </div>
+                    </div>
+                    <div class="table-row top-3">
+                        <div class="rank">
+                            <span class="medal">🥉</span>
+                            <span class="rank-number">3</span>
+                        </div>
+                        <div class="player">
+                            <span class="player-name">Ironbeard</span>
+                            <span class="player-title">Король под горой</span>
+                        </div>
+                        <div class="value">876,200</div>
+                        <div class="guild">
+                            <a href="/guild/3" class="guild-link">Гномья кузница</a>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="rank">4</div>
+                        <div class="player">
+                            <span class="player-name">FrostMage</span>
+                            <span class="player-title">Повелитель вьюг</span>
+                        </div>
+                        <div class="value">654,300</div>
+                        <div class="guild">
+                            <a href="/guild/4" class="guild-link">Гильдия магов</a>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="rank">5</div>
+                        <div class="player">
+                            <span class="player-name">Nightblade</span>
+                            <span class="player-title">Тень в ночи</span>
+                        </div>
+                        <div class="value">543,200</div>
+                        <div class="guild">
+                            <a href="/guild/5" class="guild-link">Клан убийц</a>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="rank">6</div>
+                        <div class="player">
+                            <span class="player-name">Stormbringer</span>
+                            <span class="player-title">Несущий бурю</span>
+                        </div>
+                        <div class="value">432,100</div>
+                        <div class="guild">
+                            <a href="/guild/1" class="guild-link">Серебряные драконы</a>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="rank">7</div>
+                        <div class="player">
+                            <span class="player-name">Lightbringer</span>
+                            <span class="player-title">Светоносный</span>
+                        </div>
+                        <div class="value">321,500</div>
+                        <div class="guild">
+                            <span class="no-guild">—</span>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="rank">8</div>
+                        <div class="player">
+                            <span class="player-name">DarkWizard</span>
+                            <span class="player-title">Некромант</span>
+                        </div>
+                        <div class="value">298,700</div>
+                        <div class="guild">
+                            <a href="/guild/4" class="guild-link">Гильдия магов</a>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="rank">9</div>
+                        <div class="player">
+                            <span class="player-name">Paladin</span>
+                            <span class="player-title">Защитник</span>
+                        </div>
+                        <div class="value">276,400</div>
+                        <div class="guild">
+                            <a href="/guild/6" class="guild-link">Орден Света</a>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="rank">10</div>
+                        <div class="player">
+                            <span class="player-name">Ranger</span>
+                            <span class="player-title">Следопыт</span>
+                        </div>
+                        <div class="value">254,300</div>
+                        <div class="guild">
+                            <span class="no-guild">—</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ТОП Сильнейших (по уровню) -->
+        <div class="tab-content" id="power">
+            <div class="top-table">
+                <div class="table-header">
+                    <div class="rank">#</div>
+                    <div class="player">Игрок</div>
+                    <div class="value">Уровень</div>
+                    <div class="guild">Гильдия</div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row top-1">
+                        <div class="rank">
+                            <span class="medal">🥇</span>
+                            <span class="rank-number">1</span>
+                        </div>
+                        <div class="player">
+                            <span class="player-name">Ironbeard</span>
+                            <span class="player-title">Король под горой</span>
+                        </div>
+                        <div class="value">87</div>
+                        <div class="guild">
+                            <a href="/guild/3" class="guild-link">Гномья кузница</a>
+                        </div>
+                    </div>
+                    <div class="table-row top-2">
+                        <div class="rank">
+                            <span class="medal">🥈</span>
+                            <span class="rank-number">2</span>
+                        </div>
+                        <div class="player">
+                            <span class="player-name">ShadowDragon</span>
+                            <span class="player-title">Владыка Теней</span>
+                        </div>
+                        <div class="value">85</div>
+                        <div class="guild">
+                            <a href="/guild/1" class="guild-link">Серебряные драконы</a>
+                        </div>
+                    </div>
+                    <div class="table-row top-3">
+                        <div class="rank">
+                            <span class="medal">🥉</span>
+                            <span class="rank-number">3</span>
+                        </div>
+                        <div class="player">
+                            <span class="player-name">Stormbringer</span>
+                            <span class="player-title">Несущий бурю</span>
+                        </div>
+                        <div class="value">82</div>
+                        <div class="guild">
+                            <a href="/guild/1" class="guild-link">Серебряные драконы</a>
+                        </div>
+                    </div>
+
+                    <div class="table-row">
+                        <div class="rank">4</div>
+                        <div class="player">
+                            <span class="player-name">MoonElf</span>
+                            <span class="player-title">Хранительница леса</span>
+                        </div>
+                        <div class="value">79</div>
+                        <div class="guild">
+                            <a href="/guild/2" class="guild-link">Лунные стражи</a>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="rank">5</div>
+                        <div class="player">
+                            <span class="player-name">FrostMage</span>
+                            <span class="player-title">Повелитель вьюг</span>
+                        </div>
+                        <div class="value">76</div>
+                        <div class="guild">
+                            <a href="/guild/4" class="guild-link">Гильдия магов</a>
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div class="rank">6</div>
+                        <div class="player">
+                            <span class="player-name">Paladin</span>
+                            <span class="player-title">Защитник</span>
+                        </div>
+                        <div class="value">74</div>
+                        <div class="guild">
+                            <a href="/guild/6" class="guild-link">Орден Света</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ТОП Гильдий -->
+        <div class="tab-content" id="guilds">
+            <div class="guilds-grid">
+                <div class="guild-card top-1">
+                    <div class="guild-rank">1</div>
+                    <div class="guild-icon">🐉</div>
+                    <h3 class="guild-name">
+                        <a href="/guild/1" class="guild-name-link">Серебряные драконы</a>
+                    </h3>
+                    <div class="guild-stats">
+                        <div class="guild-stat">
+                            <span class="stat-label">Участников</span>
+                            <span class="stat-value">42</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Уровень</span>
+                            <span class="stat-value">15</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Кристаллов</span>
+                            <span class="stat-value">2.1M</span>
+                        </div>
+                    </div>
+                    <div class="guild-master">
+                        <span class="master-label">Глава:</span>
+                        <span class="master-name">ShadowDragon</span>
+                    </div>
+                </div>
+
+                <div class="guild-card top-2">
+                    <div class="guild-rank">2</div>
+                    <div class="guild-icon">🌙</div>
+                    <h3 class="guild-name">
+                        <a href="/guild/2" class="guild-name-link">Лунные стражи</a>
+                    </h3>
+                    <div class="guild-stats">
+                        <div class="guild-stat">
+                            <span class="stat-label">Участников</span>
+                            <span class="stat-value">38</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Уровень</span>
+                            <span class="stat-value">13</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Кристаллов</span>
+                            <span class="stat-value">1.8M</span>
+                        </div>
+                    </div>
+                    <div class="guild-master">
+                        <span class="master-label">Глава:</span>
+                        <span class="master-name">MoonElf</span>
+                    </div>
+                </div>
+
+                <div class="guild-card top-3">
+                    <div class="guild-rank">3</div>
+                    <div class="guild-icon">⚒️</div>
+                    <h3 class="guild-name">
+                        <a href="/guild/3" class="guild-name-link">Гномья кузница</a>
+                    </h3>
+                    <div class="guild-stats">
+                        <div class="guild-stat">
+                            <span class="stat-label">Участников</span>
+                            <span class="stat-value">35</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Уровень</span>
+                            <span class="stat-value">12</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Кристаллов</span>
+                            <span class="stat-value">1.5M</span>
+                        </div>
+                    </div>
+                    <div class="guild-master">
+                        <span class="master-label">Глава:</span>
+                        <span class="master-name">Ironbeard</span>
+                    </div>
+                </div>
+
+                <div class="guild-card">
+                    <div class="guild-rank">4</div>
+                    <div class="guild-icon">🔮</div>
+                    <h3 class="guild-name">
+                        <a href="/guild/4" class="guild-name-link">Гильдия магов</a>
+                    </h3>
+                    <div class="guild-stats">
+                        <div class="guild-stat">
+                            <span class="stat-label">Участников</span>
+                            <span class="stat-value">29</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Уровень</span>
+                            <span class="stat-value">11</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Кристаллов</span>
+                            <span class="stat-value">1.2M</span>
+                        </div>
+                    </div>
+                    <div class="guild-master">
+                        <span class="master-label">Глава:</span>
+                        <span class="master-name">FrostMage</span>
+                    </div>
+                </div>
+
+                <div class="guild-card">
+                    <div class="guild-rank">5</div>
+                    <div class="guild-icon">🗡️</div>
+                    <h3 class="guild-name">
+                        <a href="/guild/5" class="guild-name-link">Клан убийц</a>
+                    </h3>
+                    <div class="guild-stats">
+                        <div class="guild-stat">
+                            <span class="stat-label">Участников</span>
+                            <span class="stat-value">27</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Уровень</span>
+                            <span class="stat-value">10</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Кристаллов</span>
+                            <span class="stat-value">980K</span>
+                        </div>
+                    </div>
+                    <div class="guild-master">
+                        <span class="master-label">Глава:</span>
+                        <span class="master-name">Nightblade</span>
+                    </div>
+                </div>
+
+                <div class="guild-card">
+                    <div class="guild-rank">6</div>
+                    <div class="guild-icon">✨</div>
+                    <h3 class="guild-name">
+                        <a href="/guild/6" class="guild-name-link">Орден Света</a>
+                    </h3>
+                    <div class="guild-stats">
+                        <div class="guild-stat">
+                            <span class="stat-label">Участников</span>
+                            <span class="stat-value">24</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Уровень</span>
+                            <span class="stat-value">9</span>
+                        </div>
+                        <div class="guild-stat">
+                            <span class="stat-label">Кристаллов</span>
+                            <span class="stat-value">850K</span>
+                        </div>
+                    </div>
+                    <div class="guild-master">
+                        <span class="master-label">Глава:</span>
+                        <span class="master-name">Paladin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ТОП PvP -->
+        <div class="tab-content" id="pvp">
+            <div class="top-table">
+                <div class="table-header">
+                    <div class="rank">#</div>
+                    <div class="player">Игрок</div>
+                    <div class="value">Побед</div>
+                    <div class="value">Убийств</div>
+                    <div class="guild">Гильдия</div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row top-1">
+                        <div class="rank">
+                            <span class="medal">🥇</span>
+                            <span class="rank-number">1</span>
+                        </div>
+                        <div class="player">
+                            <span class="player-name">Nightblade</span>
+                            <span class="player-title">Тень в ночи</span>
+                        </div>
+                        <div class="value">487</div>
+                        <div class="value">1,254</div>
+                        <div class="guild">
+                            <a href="/guild/5" class="guild-link">Клан убийц</a>
+                        </div>
+                    </div>
+                    <div class="table-row top-2">
+                        <div class="rank">
+                            <span class="medal">🥈</span>
+                            <span class="rank-number">2</span>
+                        </div>
+                        <div class="player">
+                            <span class="player-name">ShadowDragon</span>
+                            <span class="player-title">Владыка Теней</span>
+                        </div>
+                        <div class="value">432</div>
+                        <div class="value">987</div>
+                        <div class="guild">
+                            <a href="/guild/1" class="guild-link">Серебряные драконы</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ТОП Квестов -->
+        <div class="tab-content" id="quests">
+            <div class="top-table">
+                <div class="table-header">
+                    <div class="rank">#</div>
+                    <div class="player">Игрок</div>
+                    <div class="value">Квестов</div>
+                    <div class="guild">Гильдия</div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row top-1">
+                        <div class="rank">
+                            <span class="medal">🥇</span>
+                            <span class="rank-number">1</span>
+                        </div>
+                        <div class="player">
+                            <span class="player-name">MoonElf</span>
+                            <span class="player-title">Хранительница леса</span>
+                        </div>
+                        <div class="value">342</div>
+                        <div class="guild">
+                            <a href="/guild/2" class="guild-link">Лунные стражи</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+    // Мобильное меню
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+        document.querySelector('.nav').classList.toggle('active');
+    });
+
+    // Вкладки
+    document.querySelectorAll('.tab-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            // Убираем active у всех кнопок
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Добавляем active текущей кнопке
+            button.classList.add('active');
+
+            // Прячем все табы
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Показываем нужный таб
+            const tabId = button.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>

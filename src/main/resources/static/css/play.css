@@ -1,0 +1,497 @@
+/* ========== СТРАНИЦА ЛАУНЧЕРА ========== */
+
+/* Геройский блок */
+.launcher-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin: 40px 0 60px;
+    padding: 40px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-xl);
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-description {
+    color: var(--text-secondary);
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 500px;
+}
+
+.hero-decoration {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.portal {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 30% 30%,
+    var(--orange-primary),
+    var(--orange-dark),
+    var(--blue-primary));
+    border-radius: 50%;
+    animation: portalPulse 3s infinite alternate;
+    box-shadow: 0 0 60px var(--orange-glow);
+}
+
+@keyframes portalPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 60px var(--orange-glow);
+    }
+    100% {
+        transform: scale(1.1);
+        box-shadow: 0 0 100px var(--orange-glow);
+    }
+}
+
+/* Основной блок с лаунчером */
+.launcher-main {
+    margin: 60px 0;
+}
+
+.launcher-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 140, 66, 0.3);
+    border-radius: var(--border-radius-xl);
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.launcher-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+    opacity: 0.3;
+    animation: rotateBg 20s linear infinite;
+}
+
+@keyframes rotateBg {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.launcher-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px var(--orange-primary));
+    position: relative;
+    z-index: 2;
+}
+
+.launcher-title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: var(--gradient-mixed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 2;
+}
+
+.launcher-version {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.version-label {
+    color: var(--text-muted);
+    font-size: 16px;
+}
+
+.version-number {
+    background: var(--gradient-orange);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 40px;
+    font-weight: 600;
+    box-shadow: var(--shadow-orange);
+}
+
+.launcher-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+.feature-icon {
+    color: var(--orange-primary);
+    font-weight: bold;
+}
+
+/* Кнопки скачивания */
+.launcher-download {
+    margin: 40px 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.download-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, gold, #ff8c42);
+    color: #0a0f1a;
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    box-shadow: 0 0 20px gold;
+}
+
+.download-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.btn-download {
+    width: 100%;
+    justify-content: center;
+    font-size: 16px;
+    padding: 15px 30px;
+}
+
+.launcher-size {
+    color: var(--text-muted);
+    font-size: 13px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Системные требования */
+.requirements {
+    margin: 80px 0;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.requirement-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-xl);
+    padding: 30px;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.requirement-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-orange);
+}
+
+.requirement-card.recommended {
+    border: 2px solid var(--orange-primary);
+    transform: scale(1.02);
+}
+
+.requirement-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px var(--orange-primary));
+}
+
+.requirement-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--orange-light);
+}
+
+.requirement-list {
+    list-style: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.recommended-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-orange);
+    color: white;
+    padding: 4px 20px;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Инструкция по установке */
+.instructions {
+    margin: 80px 0;
+}
+
+.instructions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.instruction-step {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-xl);
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.instruction-step:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-orange);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin: 0 auto 20px;
+}
+
+.step-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--orange-light);
+}
+
+.step-description {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* FAQ */
+.launcher-faq {
+    margin: 80px 0;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 66, 0.2);
+    border-radius: var(--border-radius-xl);
+    padding: 25px;
+    transition: all 0.3s;
+}
+
+.faq-item:hover {
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-orange);
+}
+
+.faq-question {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--orange-light);
+    margin-bottom: 10px;
+}
+
+.faq-answer {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Призыв скачать */
+.download-cta {
+    margin: 80px 0 40px;
+}
+
+.cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, rgba(255, 140, 66, 0.1), rgba(58, 110, 165, 0.1));
+    border: 1px solid rgba(255, 140, 66, 0.3);
+    border-radius: var(--border-radius-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.cta-description {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.cta-runes {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 24px;
+    color: var(--orange-primary);
+    opacity: 0.5;
+}
+
+.cta-runes span {
+    animation: runeFloat 2s infinite alternate;
+}
+
+.cta-runes span:nth-child(2) { animation-delay: -0.3s; }
+.cta-runes span:nth-child(3) { animation-delay: -0.6s; }
+.cta-runes span:nth-child(4) { animation-delay: -0.9s; }
+.cta-runes span:nth-child(5) { animation-delay: -1.2s; }
+
+/* Адаптация */
+@media (max-width: 1024px) {
+    .requirements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .instructions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .launcher-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .launcher-features {
+        grid-template-columns: 1fr;
+    }
+
+    .requirements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .requirement-card.recommended {
+        transform: scale(1);
+    }
+
+    .instructions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .launcher-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .launcher-card {
+        padding: 30px 20px;
+    }
+
+    .download-buttons .btn {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+
+    .launcher-size {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .cta-title {
+        font-size: 28px;
+    }
+}

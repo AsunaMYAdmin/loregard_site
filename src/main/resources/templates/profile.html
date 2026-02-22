@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль | Loregard</title>
+  <link rel="stylesheet" href="/css/profile.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+  <div class="rune rune-1"></div>
+  <div class="rune rune-2"></div>
+  <div class="rune rune-3"></div>
+  <div class="rune rune-4"></div>
+  <div class="mist mist-1"></div>
+  <div class="mist mist-2"></div>
+  <div class="ancient-symbol symbol-1">ᛉ</div>
+  <div class="ancient-symbol symbol-2">ᛟ</div>
+  <div class="ancient-symbol symbol-3">ᚨ</div>
+  <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('profile')}"></div>
+
+<main class="profile">
+  <div class="container">
+    <!-- Хлебные крошки -->
+    <div class="breadcrumbs">
+      <a href="/">Главная</a> <span>/</span> <span>Профиль</span>
+    </div>
+
+    <!-- Верхняя часть с основной информацией и уровнем -->
+    <div class="profile-header">
+      <div class="profile-avatar-section">
+        <div class="avatar-frame">
+          <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
+          <div class="avatar-glow"></div>
+        </div>
+        <div class="profile-name">
+          <h1 class="character-name">Тенебрис <span class="character-nick">(ShadowHunter)</span></h1>
+          <div class="character-title">
+            <span class="title-icon">👑</span>
+            <span class="title-text">Хранитель Сумеречного Леса</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-level-section">
+        <div class="level-circle">
+          <div class="level-number">42</div>
+          <div class="level-label">Уровень</div>
+          <div class="level-progress">
+            <div class="progress-bar" style="width: 65%"></div>
+          </div>
+          <div class="exp-info">3,450 / 5,000 опыта</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Основная информация и характеристики -->
+    <div class="profile-stats-grid">
+      <div class="stat-card race-card">
+        <div class="stat-icon">🧝</div>
+        <div class="stat-content">
+          <div class="stat-label">Раса</div>
+          <div class="stat-value">Ночной эльф</div>
+        </div>
+      </div>
+
+      <div class="stat-card class-card">
+        <div class="stat-icon">🏹</div>
+        <div class="stat-content">
+          <div class="stat-label">Класс</div>
+          <div class="stat-value">Теневой лучник</div>
+        </div>
+      </div>
+
+      <div class="stat-card guild-card">
+        <div class="stat-icon">🛡️</div>
+        <div class="stat-content">
+          <div class="stat-label">Гильдия</div>
+          <div class="stat-value">Серебряные драконы</div>
+        </div>
+      </div>
+
+      <div class="stat-card crystals-card">
+        <div class="stat-icon">💎</div>
+        <div class="stat-content">
+          <div class="stat-label">Кристаллы</div>
+          <div class="stat-value">15,420</div>
+        </div>
+      </div>
+
+      <div class="stat-card gold-card">
+        <div class="stat-icon">💰</div>
+        <div class="stat-content">
+          <div class="stat-label">Золото</div>
+          <div class="stat-value">8,750</div>
+        </div>
+      </div>
+
+      <div class="stat-card time-card">
+        <div class="stat-icon">⏳</div>
+        <div class="stat-content">
+          <div class="stat-label">В игре</div>
+          <div class="stat-value">342 часа</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Характеристики персонажа -->
+    <div class="attributes-section">
+      <h2 class="section-title">⚡ <span class="gradient-text">Атрибуты</span> героя</h2>
+      <div class="attributes-grid">
+        <div class="attribute-item">
+          <div class="attribute-name">Сила</div>
+          <div class="attribute-value">28</div>
+          <div class="attribute-bar">
+            <div class="attribute-fill" style="width: 70%"></div>
+          </div>
+        </div>
+        <div class="attribute-item">
+          <div class="attribute-name">Ловкость</div>
+          <div class="attribute-value">45</div>
+          <div class="attribute-bar">
+            <div class="attribute-fill" style="width: 90%"></div>
+          </div>
+        </div>
+        <div class="attribute-item">
+          <div class="attribute-name">Интеллект</div>
+          <div class="attribute-value">32</div>
+          <div class="attribute-bar">
+            <div class="attribute-fill" style="width: 64%"></div>
+          </div>
+        </div>
+        <div class="attribute-item">
+          <div class="attribute-name">Выносливость</div>
+          <div class="attribute-value">38</div>
+          <div class="attribute-bar">
+            <div class="attribute-fill" style="width: 76%"></div>
+          </div>
+        </div>
+        <div class="attribute-item">
+          <div class="attribute-name">Защита</div>
+          <div class="attribute-value">25</div>
+          <div class="attribute-bar">
+            <div class="attribute-fill" style="width: 50%"></div>
+          </div>
+        </div>
+        <div class="attribute-item">
+          <div class="attribute-name">Удача</div>
+          <div class="attribute-value">18</div>
+          <div class="attribute-bar">
+            <div class="attribute-fill" style="width: 36%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Игровая статистика -->
+    <div class="game-stats-section">
+      <h2 class="section-title">📊 <span class="gradient-text">Игровая</span> статистика</h2>
+      <div class="stats-cards">
+        <div class="stat-large-card">
+          <div class="stat-large-icon">⚔️</div>
+          <div class="stat-large-content">
+            <div class="stat-large-value">1,547</div>
+            <div class="stat-large-label">Убито мобов</div>
+          </div>
+        </div>
+        <div class="stat-large-card">
+          <div class="stat-large-icon">🏆</div>
+          <div class="stat-large-content">
+            <div class="stat-large-value">23</div>
+            <div class="stat-large-label">Побед на арене</div>
+          </div>
+        </div>
+        <div class="stat-large-card">
+          <div class="stat-large-icon">🗡️</div>
+          <div class="stat-large-content">
+            <div class="stat-large-value">87</div>
+            <div class="stat-large-label">PvP убийств</div>
+          </div>
+        </div>
+        <div class="stat-large-card">
+          <div class="stat-large-icon">📜</div>
+          <div class="stat-large-content">
+            <div class="stat-large-value">42</div>
+            <div class="stat-large-label">Завершено квестов</div>
+          </div>
+        </div>
+        <div class="stat-large-card">
+          <div class="stat-large-icon">🏰</div>
+          <div class="stat-large-content">
+            <div class="stat-large-value">5</div>
+            <div class="stat-large-label">Захвачено замков</div>
+          </div>
+        </div>
+        <div class="stat-large-card">
+          <div class="stat-large-icon">🐉</div>
+          <div class="stat-large-content">
+            <div class="stat-large-value">3</div>
+            <div class="stat-large-label">Убито драконов</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Экипировка и снаряжение -->
+    <div class="equipment-section">
+      <h2 class="section-title">⚔️ <span class="gradient-text">Снаряжение</span> героя</h2>
+      <div class="equipment-grid">
+        <div class="equipment-slot">
+          <div class="slot-icon">🪖</div>
+          <div class="slot-name">Шлем теней</div>
+          <div class="slot-rarity epic">+32 защиты</div>
+        </div>
+        <div class="equipment-slot">
+          <div class="slot-icon">🛡️</div>
+          <div class="slot-name">Нагрудник дракона</div>
+          <div class="slot-rarity legendary">+45 защиты</div>
+        </div>
+        <div class="equipment-slot">
+          <div class="slot-icon">👖</div>
+          <div class="slot-name">Поножи ветра</div>
+          <div class="slot-rarity rare">+18 защиты</div>
+        </div>
+        <div class="equipment-slot">
+          <div class="slot-icon">👟</div>
+          <div class="slot-name">Сапоги скорости</div>
+          <div class="slot-rarity rare">+12 защиты</div>
+        </div>
+        <div class="equipment-slot">
+          <div class="slot-icon">🏹</div>
+          <div class="slot-name">Лунный лук</div>
+          <div class="slot-rarity legendary">+67 урона</div>
+        </div>
+        <div class="equipment-slot">
+          <div class="slot-icon">💍</div>
+          <div class="slot-name">Кольцо мудрости</div>
+          <div class="slot-rarity epic">+15 интеллекта</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Фэнтези-фишки (Пророчество и Знак судьбы) -->
+    <div class="fantasy-features">
+      <div class="prophecy-card">
+        <div class="prophecy-icon">🔮</div>
+        <div class="prophecy-content">
+          <h3 class="prophecy-title">Пророчество дня</h3>
+          <p class="prophecy-text">Звёзды шепчут, что сегодня ты найдёшь редкий артефакт в Забытых пещерах. Тени хранят тайну, которая откроется только достойному.</p>
+        </div>
+      </div>
+
+      <div class="destiny-card">
+        <div class="destiny-icon">✨</div>
+        <div class="destiny-content">
+          <h3 class="destiny-title">Знак судьбы</h3>
+          <div class="destiny-runes">ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ</div>
+          <p class="destiny-text">Древний знак Одина — ты избран для великих свершений</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Достижения -->
+    <div class="achievements-section">
+      <h2 class="section-title">🏅 <span class="gradient-text">Достижения</span></h2>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <div class="achievement-icon">🐉</div>
+          <div class="achievement-info">
+            <div class="achievement-name">Убийца драконов</div>
+            <div class="achievement-desc">Повержено 3 дракона</div>
+          </div>
+          <div class="achievement-date">12.02.2026</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">🏆</div>
+          <div class="achievement-info">
+            <div class="achievement-name">Чемпион арены</div>
+            <div class="achievement-desc">10 побед подряд</div>
+          </div>
+          <div class="achievement-date">05.01.2026</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">💰</div>
+          <div class="achievement-info">
+            <div class="achievement-name">Кристальный магнат</div>
+            <div class="achievement-desc">Накоплено 10,000 кристаллов</div>
+          </div>
+          <div class="achievement-date">20.12.2025</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">🗺️</div>
+          <div class="achievement-info">
+            <div class="achievement-name">Исследователь</div>
+            <div class="achievement-desc">Посещено 5 миров</div>
+          </div>
+          <div class="achievement-date">01.11.2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+  document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+    document.querySelector('.nav').classList.toggle('active');
+  });
+</script>
+</body>
+</html>

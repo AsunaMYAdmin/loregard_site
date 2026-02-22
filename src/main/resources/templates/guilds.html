@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гильдии | Loregard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/guilds.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+  <div class="rune rune-1"></div>
+  <div class="rune rune-2"></div>
+  <div class="rune rune-3"></div>
+  <div class="rune rune-4"></div>
+  <div class="mist mist-1"></div>
+  <div class="mist mist-2"></div>
+  <div class="ancient-symbol symbol-1">ᛉ</div>
+  <div class="ancient-symbol symbol-2">ᛟ</div>
+  <div class="ancient-symbol symbol-3">ᚨ</div>
+  <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('guilds')}"></div>
+
+<main class="main">
+  <div class="container">
+    <!-- Хлебные крошки -->
+    <div class="breadcrumbs">
+      <a href="/">Главная</a> <span>/</span> <span>Гильдии</span>
+    </div>
+
+    <!-- Заголовок -->
+    <section class="page-header">
+      <h1 class="page-title">Гильдии <span class="gradient-text">Loregard</span></h1>
+      <p class="page-description">
+        Объединения великих героев. Вступай в гильдию, чтобы сражаться плечом к плечу,
+        захватывать замки и вписывать своё имя в историю мира.
+      </p>
+    </section>
+
+    <!-- Фильтры -->
+    <div class="filters">
+      <div class="filter-tabs">
+        <button class="filter-btn active">Все гильдии</button>
+        <button class="filter-btn">По популярности</button>
+        <button class="filter-btn">По уровню</button>
+        <button class="filter-btn">По участникам</button>
+      </div>
+      <div class="search">
+        <label>
+          <input type="text" placeholder="Поиск гильдии..." class="search-input">
+        </label>
+        <button class="search-btn">🔍</button>
+      </div>
+    </div>
+
+    <!-- Сетка гильдий -->
+    <div class="guilds-grid">
+      <!-- Гильдия 1 -->
+      <a href="/guild/1" class="guild-card">
+        <div class="guild-rank">#1</div>
+        <div class="guild-icon">🐉</div>
+        <h2 class="guild-name">Серебряные драконы</h2>
+        <p class="guild-tagline">«Честь превыше всего»</p>
+
+        <div class="guild-stats">
+          <div class="guild-stat">
+            <span class="stat-label">Уровень</span>
+            <span class="stat-value">15</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Участников</span>
+            <span class="stat-value">42</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Кристаллов</span>
+            <span class="stat-value">2.1M</span>
+          </div>
+        </div>
+
+        <p class="guild-description">
+          Древнейшая гильдия Loregard. Объединяет лучших воинов, магов и следопытов.
+        </p>
+
+        <div class="guild-master">
+          <span class="master-label">Глава:</span>
+          <span class="master-name">ShadowDragon</span>
+        </div>
+      </a>
+
+      <!-- Гильдия 2 -->
+      <a href="/guild/2" class="guild-card">
+        <div class="guild-rank">#2</div>
+        <div class="guild-icon">🌙</div>
+        <h2 class="guild-name">Лунные стражи</h2>
+        <p class="guild-tagline">«Тайны ночи под нашей защитой»</p>
+
+        <div class="guild-stats">
+          <div class="guild-stat">
+            <span class="stat-label">Уровень</span>
+            <span class="stat-value">13</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Участников</span>
+            <span class="stat-value">38</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Кристаллов</span>
+            <span class="stat-value">1.8M</span>
+          </div>
+        </div>
+
+        <p class="guild-description">
+          Эльфийская гильдия, хранящая древние тайны и магию луны.
+        </p>
+
+        <div class="guild-master">
+          <span class="master-label">Глава:</span>
+          <span class="master-name">MoonElf</span>
+        </div>
+      </a>
+
+      <!-- Гильдия 3 -->
+      <a href="/guild/3" class="guild-card">
+        <div class="guild-rank">#3</div>
+        <div class="guild-icon">⚒️</div>
+        <h2 class="guild-name">Гномья кузница</h2>
+        <p class="guild-tagline">«Лучшее оружие куётся под горой»</p>
+
+        <div class="guild-stats">
+          <div class="guild-stat">
+            <span class="stat-label">Уровень</span>
+            <span class="stat-value">12</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Участников</span>
+            <span class="stat-value">35</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Кристаллов</span>
+            <span class="stat-value">1.5M</span>
+          </div>
+        </div>
+
+        <p class="guild-description">
+          Гильдия гномов-кузнецов и рудокопов. Лучшее оружие и броня.
+        </p>
+
+        <div class="guild-master">
+          <span class="master-label">Глава:</span>
+          <span class="master-name">Ironbeard</span>
+        </div>
+      </a>
+
+      <!-- Гильдия 4 -->
+      <a href="/guild/4" class="guild-card">
+        <div class="guild-rank">#4</div>
+        <div class="guild-icon">🔮</div>
+        <h2 class="guild-name">Гильдия магов</h2>
+        <p class="guild-tagline">«Знание — сила»</p>
+
+        <div class="guild-stats">
+          <div class="guild-stat">
+            <span class="stat-label">Уровень</span>
+            <span class="stat-value">11</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Участников</span>
+            <span class="stat-value">29</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Кристаллов</span>
+            <span class="stat-value">1.2M</span>
+          </div>
+        </div>
+
+        <p class="guild-description">
+          Объединение сильнейших магов Loregard. Древние заклинания и артефакты.
+        </p>
+
+        <div class="guild-master">
+          <span class="master-label">Глава:</span>
+          <span class="master-name">FrostMage</span>
+        </div>
+      </a>
+
+      <!-- Гильдия 5 -->
+      <a href="/guild/5" class="guild-card">
+        <div class="guild-rank">#5</div>
+        <div class="guild-icon">🗡️</div>
+        <h2 class="guild-name">Клан убийц</h2>
+        <p class="guild-tagline">«Тень — наше убежище»</p>
+
+        <div class="guild-stats">
+          <div class="guild-stat">
+            <span class="stat-label">Уровень</span>
+            <span class="stat-value">10</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Участников</span>
+            <span class="stat-value">27</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Кристаллов</span>
+            <span class="stat-value">980K</span>
+          </div>
+        </div>
+
+        <p class="guild-description">
+          Тайный клан ассасинов. Лучшие в PvP, незаметные и смертоносные.
+        </p>
+
+        <div class="guild-master">
+          <span class="master-label">Глава:</span>
+          <span class="master-name">Nightblade</span>
+        </div>
+      </a>
+
+      <!-- Гильдия 6 -->
+      <a href="/guild/6" class="guild-card">
+        <div class="guild-rank">#6</div>
+        <div class="guild-icon">✨</div>
+        <h2 class="guild-name">Орден Света</h2>
+        <p class="guild-tagline">«Свет победит тьму»</p>
+
+        <div class="guild-stats">
+          <div class="guild-stat">
+            <span class="stat-label">Уровень</span>
+            <span class="stat-value">9</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Участников</span>
+            <span class="stat-value">24</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Кристаллов</span>
+            <span class="stat-value">850K</span>
+          </div>
+        </div>
+
+        <p class="guild-description">
+          Паладины и священники, защищающие мир от тьмы. Целители и защитники.
+        </p>
+
+        <div class="guild-master">
+          <span class="master-label">Глава:</span>
+          <span class="master-name">Paladin</span>
+        </div>
+      </a>
+
+      <!-- Гильдия 7 -->
+      <a href="/guild/7" class="guild-card">
+        <div class="guild-rank">#7</div>
+        <div class="guild-icon">🐺</div>
+        <h2 class="guild-name">Северные волки</h2>
+        <p class="guild-tagline">«Свобода и сила»</p>
+
+        <div class="guild-stats">
+          <div class="guild-stat">
+            <span class="stat-label">Уровень</span>
+            <span class="stat-value">8</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Участников</span>
+            <span class="stat-value">22</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Кристаллов</span>
+            <span class="stat-value">720K</span>
+          </div>
+        </div>
+
+        <p class="guild-description">
+          Варвары с севера. Дикие, сильные и свободные. Лучшие охотники.
+        </p>
+
+        <div class="guild-master">
+          <span class="master-label">Глава:</span>
+          <span class="master-name">Ragnar</span>
+        </div>
+      </a>
+
+      <!-- Гильдия 8 -->
+      <a href="/guild/8" class="guild-card">
+        <div class="guild-rank">#8</div>
+        <div class="guild-icon">⚗️</div>
+        <h2 class="guild-name">Алхимики</h2>
+        <p class="guild-tagline">«Истина в зельях»</p>
+
+        <div class="guild-stats">
+          <div class="guild-stat">
+            <span class="stat-label">Уровень</span>
+            <span class="stat-value">7</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Участников</span>
+            <span class="stat-value">19</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Кристаллов</span>
+            <span class="stat-value">650K</span>
+          </div>
+        </div>
+
+        <p class="guild-description">
+          Мастера зелий и эликсиров. Лучшие баффы и лечебные снадобья.
+        </p>
+
+        <div class="guild-master">
+          <span class="master-label">Глава:</span>
+          <span class="master-name">PotionMaster</span>
+        </div>
+      </a>
+
+      <!-- Гильдия 9 -->
+      <a href="/guild/9" class="guild-card">
+        <div class="guild-rank">#9</div>
+        <div class="guild-icon">🏯</div>
+        <h2 class="guild-name">Стражи подземелий</h2>
+        <p class="guild-tagline">«Никто не пройдёт»</p>
+
+        <div class="guild-stats">
+          <div class="guild-stat">
+            <span class="stat-label">Уровень</span>
+            <span class="stat-value">6</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Участников</span>
+            <span class="stat-value">17</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Кристаллов</span>
+            <span class="stat-value">520K</span>
+          </div>
+        </div>
+
+        <p class="guild-description">
+          Хранители подземелий и данжей. Лучшие танки и защитники.
+        </p>
+
+        <div class="guild-master">
+          <span class="master-label">Глава:</span>
+          <span class="master-name">Guardian</span>
+        </div>
+      </a>
+
+      <!-- Гильдия 10 -->
+      <a href="/guild/10" class="guild-card">
+        <div class="guild-rank">#10</div>
+        <div class="guild-icon">💰</div>
+        <h2 class="guild-name">Торговцы</h2>
+        <p class="guild-tagline">«Всё продаётся, всё покупается»</p>
+
+        <div class="guild-stats">
+          <div class="guild-stat">
+            <span class="stat-label">Уровень</span>
+            <span class="stat-value">5</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Участников</span>
+            <span class="stat-value">15</span>
+          </div>
+          <div class="guild-stat">
+            <span class="stat-label">Кристаллов</span>
+            <span class="stat-value">2.3M</span>
+          </div>
+        </div>
+
+        <p class="guild-description">
+          Богатейшая гильдия Loregard. Контролируют рынки и цены.
+        </p>
+
+        <div class="guild-master">
+          <span class="master-label">Глава:</span>
+          <span class="master-name">Merchant</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Пагинация -->
+    <div class="pagination">
+      <a href="#" class="page-link active">1</a>
+      <a href="#" class="page-link">2</a>
+      <a href="#" class="page-link">3</a>
+      <span class="page-dots">...</span>
+      <a href="#" class="page-link">10</a>
+    </div>
+  </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+  document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+    document.querySelector('.nav').classList.toggle('active');
+  });
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

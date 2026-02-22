@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<body>
+<header class="header" th:fragment="header(activePage)">
+    <div class="container header-container">
+        <a class="logo">
+            <span class="logo-icon">⚔️</span>
+            <span class="logo-text">Loregard</span>
+        </a>
+        <nav class="nav">
+            <a href="/" class="nav-link" th:classappend="${activePage == 'home'} ? 'active' : ''">Главная</a>
+            <a href="/profile" class="nav-link" th:classappend="${activePage == 'profile'} ? 'active' : ''">Профиль</a>
+            <a href="/shop" class="nav-link" th:classappend="${activePage == 'shop'} ? 'active' : ''">Магазин</a>
+            <a href="/banlist" class="nav-link" th:classappend="${activePage == 'banlist'} ? 'active' : ''">Бан-лист</a>
+            <a href="/heroes" class="nav-link" th:classappend="${activePage == 'heroes'} ? 'active' : ''">ТОП</a>
+            <a href="/bank" class="nav-link" th:classappend="${activePage == 'bank'} ? 'active' : ''">Банк</a>
+            <a href="/forum" class="nav-link" th:classappend="${activePage == 'forum'} ? 'active' : ''">Форум</a>
+            <a href="/faq" class="nav-link" th:classappend="${activePage == 'faq'} ? 'active' : ''">FAQ</a>
+            <a href="/staff" class="nav-link" th:classappend="${activePage == 'staff'} ? 'active' : ''">Администрация</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="btn btn-outline">Войти</a>
+            <a href="/play" class="btn btn-primary">Играть</a>
+        </div>
+        <button class="mobile-menu-btn">☰</button>
+    </div>
+</header>
+</body>
+</html>

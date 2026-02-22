@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Правила | Loregard</title>
+    <link rel="stylesheet" href="/css/rules.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+    <div class="rune rune-1"></div>
+    <div class="rune rune-2"></div>
+    <div class="rune rune-3"></div>
+    <div class="rune rune-4"></div>
+    <div class="mist mist-1"></div>
+    <div class="mist mist-2"></div>
+    <div class="ancient-symbol symbol-1">ᛉ</div>
+    <div class="ancient-symbol symbol-2">ᛟ</div>
+    <div class="ancient-symbol symbol-3">ᚨ</div>
+    <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('rules')}"></div>
+
+<main class="rules">
+    <div class="container">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="/">Главная</a> <span>/</span> <span>Правила</span>
+        </div>
+
+        <!-- Заголовок -->
+        <section class="rules-hero">
+            <div class="hero-content">
+                <div class="hero-badge">📜 Свиток веков</div>
+                <h1 class="hero-title">Кодекс <span class="gradient-text">Loregard</span></h1>
+                <p class="hero-description">
+                    Каждый мир живёт по своим законам. Loregard — не исключение.
+                    Эти правила писаны не для того, чтобы ограничивать, а чтобы сохранить
+                    гармонию и позволить каждому герою наслаждаться приключениями.
+                </p>
+            </div>
+            <div class="hero-decoration">
+                <div class="floating-runes">
+                    <span>ᚠ</span><span>ᚢ</span><span>ᚦ</span><span>ᚨ</span><span>ᚱ</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Три столпа -->
+        <section class="pillars">
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">⚔️</div>
+                    <h3 class="pillar-title">Честь</h3>
+                    <p class="pillar-text">Играй достойно. Уважай противников и союзников.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🤝</div>
+                    <h3 class="pillar-title">Уважение</h3>
+                    <p class="pillar-text">Относись к другим так, как хочешь, чтобы относились к тебе.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🌟</div>
+                    <h3 class="pillar-title">Честность</h3>
+                    <p class="pillar-text">Твоя легенда ценна только тогда, когда она создана честным трудом.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Правила общения -->
+        <section class="rules-category">
+            <div class="category-header">
+                <div class="category-icon-wrapper">
+                    <span class="category-icon">💬</span>
+                </div>
+                <div class="category-header-content">
+                    <h2 class="category-title">Голос <span class="gradient-text">миров</span></h2>
+                    <p class="category-subtitle">Как общаться в чатах и на форуме</p>
+                </div>
+            </div>
+
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <h3 class="rule-card-title">Взаимное уважение</h3>
+                    <p class="rule-card-text">
+                        Общайся с другими игроками так, как ты хотел бы, чтобы общались с тобой.
+                        В этом мире нет места грубости и оскорблениям.
+                    </p>
+                </div>
+                <div class="rule-card">
+                    <h3 class="rule-card-title">Чистота эфира</h3>
+                    <p class="rule-card-text">
+                        Не засоряй общий чат бессмысленными сообщениями. Магические каналы
+                        созданы для общения, а не для спама.
+                    </p>
+                </div>
+                <div class="rule-card">
+                    <h3 class="rule-card-title">Терпимость</h3>
+                    <p class="rule-card-text">
+                        В Loregard рады всем, независимо от происхождения, расы (в реальной жизни)
+                        и убеждений. Мы одна большая гильдия.
+                    </p>
+                </div>
+                <div class="rule-card">
+                    <h3 class="rule-card-title">Конструктивность</h3>
+                    <p class="rule-card-text">
+                        Если хочешь предложить идею или указать на проблему — сделай это вежливо
+                        и аргументированно. Мы всегда открыты к диалогу.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Игровые правила -->
+        <section class="rules-category">
+            <div class="category-header">
+                <div class="category-icon-wrapper">
+                    <span class="category-icon">⚔️</span>
+                </div>
+                <div class="category-header-content">
+                    <h2 class="category-title">Законы <span class="gradient-text">миров</span></h2>
+                    <p class="category-subtitle">Как вести себя в игровом пространстве</p>
+                </div>
+            </div>
+
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <h3 class="rule-card-title">Исследование и приключения</h3>
+                    <p class="rule-card-text">
+                        Мир создан для исследований. Путешествуй, открывай новые земли,
+                        но помни — другие герои тоже оставляют свой след.
+                    </p>
+                </div>
+                <div class="rule-card">
+                    <h3 class="rule-card-title">Честные поединки</h3>
+                    <p class="rule-card-text">
+                        Если ты вступаешь в битву — сражайся достойно. Честь воина дороже победы.
+                    </p>
+                </div>
+                <div class="rule-card">
+                    <h3 class="rule-card-title">Торговля и обмен</h3>
+                    <p class="rule-card-text">
+                        Будь честен в сделках. Репутация честного торговца ценнее любого золота.
+                    </p>
+                </div>
+                <div class="rule-card">
+                    <h3 class="rule-card-title">Гармония мира</h3>
+                    <p class="rule-card-text">
+                        Старайся не нарушать природный баланс. Чрезмерные нагрузки на мир
+                        вредят всем его обитателям.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Запрет на тёмную магию (читы) -->
+        <section class="rules-category">
+            <div class="category-header">
+                <div class="category-icon-wrapper">
+                    <span class="category-icon">🔮</span>
+                </div>
+                <div class="category-header-content">
+                    <h2 class="category-title">Тёмная <span class="gradient-text">магия</span></h2>
+                    <p class="category-subtitle">Что считается запретными искусствами</p>
+                </div>
+            </div>
+
+            <div class="cheats-section">
+                <p class="cheats-intro">
+                    Древние скрижали гласят: тот, кто использует тёмную магию для обретения
+                    преимущества над другими, теряет право называться героем Loregard.
+                </p>
+
+                <div class="cheats-grid">
+                    <div class="cheat-item">
+                        <span class="cheat-name">Зрение сквозь стены</span>
+                        <span class="cheat-desc">(X-Ray, Wallhack)</span>
+                    </div>
+                    <div class="cheat-item">
+                        <span class="cheat-name">Управление битвой</span>
+                        <span class="cheat-desc">(Aimbot, KillAura)</span>
+                    </div>
+                    <div class="cheat-item">
+                        <span class="cheat-name">Полет без крыльев</span>
+                        <span class="cheat-desc">(Fly, Speed hacks)</span>
+                    </div>
+                    <div class="cheat-item">
+                        <span class="cheat-name">Неуязвимость</span>
+                        <span class="cheat-desc">(AntiKnockback, NoFall)</span>
+                    </div>
+                    <div class="cheat-item">
+                        <span class="cheat-name">Чувство чужого присутствия</span>
+                        <span class="cheat-desc">(ESP, Tracers)</span>
+                    </div>
+                    <div class="cheat-item">
+                        <span class="cheat-name">Автоматические ритуалы</span>
+                        <span class="cheat-desc">(AutoClicker, Macros)</span>
+                    </div>
+                    <div class="cheat-item">
+                        <span class="cheat-name">Модификации клиента</span>
+                        <span class="cheat-desc">(Любые читы)</span>
+                    </div>
+                </div>
+
+                <div class="cheats-note">
+                    <p>
+                        Использование любых программ и модификаций, дающих преимущество перед
+                        другими игроками, нарушает гармонию мира. Мы за чистую игру.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Заключение -->
+        <section class="conclusion">
+            <div class="conclusion-content">
+                <h2 class="conclusion-title">Pax et <span class="gradient-text">Harmonia</span></h2>
+                <p class="conclusion-text">
+                    Loregard — это мир, который мы создаём вместе. Правила существуют не для того,
+                    чтобы наказывать, а чтобы каждый мог наслаждаться приключениями в комфортной
+                    и дружелюбной атмосфере. Будь героем, которым ты хочешь стать.
+                </p>
+                <div class="conclusion-runes">
+                    <span>ᚹ</span><span>ᛖ</span><span>ᛚ</span><span>ᚲᛟᛗᛖ</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+        document.querySelector('.nav').classList.toggle('active');
+    });
+</script>
+</body>
+</html>

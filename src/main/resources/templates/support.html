@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Техподдержка | Loregard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/support.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+    <div class="rune rune-1"></div>
+    <div class="rune rune-2"></div>
+    <div class="rune rune-3"></div>
+    <div class="rune rune-4"></div>
+    <div class="mist mist-1"></div>
+    <div class="mist mist-2"></div>
+    <div class="ancient-symbol symbol-1">ᛉ</div>
+    <div class="ancient-symbol symbol-2">ᛟ</div>
+    <div class="ancient-symbol symbol-3">ᚨ</div>
+    <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div th:replace="~{fragments/header :: header('support')}"></div>
+
+<main class="main">
+    <div class="container">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="/">Главная</a> <span>/</span> <span>Техподдержка</span>
+        </div>
+
+        <!-- Заголовок -->
+        <section class="page-header">
+            <h1 class="page-title">Техническая <span class="gradient-text">поддержка</span></h1>
+            <p class="page-description">
+                Хранители Loregard готовы прийти на помощь. Выбери категорию проблемы и отправь заявку —
+                мы ответим в ближайшее время.
+            </p>
+        </section>
+
+        <!-- Статус системы (упрощённый) -->
+        <section class="system-status">
+            <div class="status-simple">
+                <h3 class="status-simple-title">🛡️ Статус миров</h3>
+                <div class="status-simple-grid">
+                    <div class="status-simple-item">
+                        <span class="status-simple-label">Мир Арден</span>
+                        <span class="status-simple-value online">● Онлайн</span>
+                    </div>
+                    <div class="status-simple-item">
+                        <span class="status-simple-label">Эльфийские леса</span>
+                        <span class="status-simple-value online">● Онлайн</span>
+                    </div>
+                    <div class="status-simple-item">
+                        <span class="status-simple-label">Гномьи горы</span>
+                        <span class="status-simple-value online">● Онлайн</span>
+                    </div>
+                    <div class="status-simple-item">
+                        <span class="status-simple-label">Магическая академия</span>
+                        <span class="status-simple-value maintenance">⚡ Обновление</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Категории проблем -->
+        <section class="categories">
+            <h2 class="section-title">Выбери <span class="gradient-text">категорию</span> проблемы</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="connection">
+                    <div class="category-icon">🌐</div>
+                    <h3 class="category-title">Проблемы подключения</h3>
+                    <p class="category-description">Не могу зайти на сервер, высокий пинг, лаги</p>
+                </div>
+                <div class="category-card" data-category="technical">
+                    <div class="category-icon">⚡</div>
+                    <h3 class="category-title">Технические проблемы</h3>
+                    <p class="category-description">Вылетает игра, баги, ошибки</p>
+                </div>
+                <div class="category-card" data-category="account">
+                    <div class="category-icon">👤</div>
+                    <h3 class="category-title">Аккаунт</h3>
+                    <p class="category-description">Проблемы с входом, смена пароля, восстановление</p>
+                </div>
+                <div class="category-card" data-category="payment">
+                    <div class="category-icon">💎</div>
+                    <h3 class="category-title">Платежи и кристаллы</h3>
+                    <p class="category-description">Оплата не прошла, кристаллы не начислены</p>
+                </div>
+                <div class="category-card" data-category="guild">
+                    <div class="category-icon">🏰</div>
+                    <h3 class="category-title">Гильдии</h3>
+                    <p class="category-description">Проблемы с созданием, управлением гильдией</p>
+                </div>
+                <div class="category-card" data-category="complaint">
+                    <div class="category-icon">⚔️</div>
+                    <h3 class="category-title">Жалобы на игроков</h3>
+                    <p class="category-description">Гриферство, оскорбления, нарушение правил</p>
+                </div>
+                <div class="category-card" data-category="bank">
+                    <div class="category-icon">🏦</div>
+                    <h3 class="category-title">Банк</h3>
+                    <p class="category-description">Проблемы со счетами, переводами</p>
+                </div>
+                <div class="category-card" data-category="other">
+                    <div class="category-icon">❓</div>
+                    <h3 class="category-title">Другое</h3>
+                    <p class="category-description">Вопросы, не попавшие в другие категории</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма обращения -->
+        <section class="ticket-section">
+            <div class="ticket-grid">
+                <div class="ticket-form">
+                    <h2 class="ticket-title">✍️ Создать обращение</h2>
+                    <p class="ticket-description">
+                        Заполни форму максимально подробно — это поможет нам быстрее решить твою проблему.
+                    </p>
+
+                    <form class="form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nickname" class="form-label">Игровой ник <span class="required">*</span></label>
+                                <input type="text" id="nickname" class="form-input" placeholder="Например: ShadowDragon" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email <span class="required">*</span></label>
+                                <input type="email" id="email" class="form-input" placeholder="hero@loregard.ru" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="category" class="form-label">Категория <span class="required">*</span></label>
+                                <select id="category" class="form-select" required>
+                                    <option value="">Выбери категорию</option>
+                                    <option value="connection">Проблемы подключения</option>
+                                    <option value="technical">Технические проблемы</option>
+                                    <option value="account">Аккаунт</option>
+                                    <option value="payment">Платежи и кристаллы</option>
+                                    <option value="guild">Гильдии</option>
+                                    <option value="complaint">Жалобы на игроков</option>
+                                    <option value="bank">Банк</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="priority" class="form-label">Приоритет</label>
+                                <select id="priority" class="form-select">
+                                    <option value="low">Низкий (вопрос)</option>
+                                    <option value="medium" selected>Средний (проблема)</option>
+                                    <option value="high">Высокий (критично)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Тема обращения <span class="required">*</span></label>
+                            <input type="text" id="subject" class="form-input" placeholder="Кратко опиши проблему" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Подробное описание <span class="required">*</span></label>
+                            <textarea id="message" class="form-textarea" rows="6"
+                                      placeholder="Опиши проблему как можно подробнее. Укажи, что делал, что ожидал увидеть и что произошло на самом деле. Если есть скриншоты — приложи их позже в Discord."
+                                      required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-checkbox">
+                                <input type="checkbox" required>
+                                <span>Я подтверждаю, что ознакомился с <a href="/rules">правилами</a> сервера</span>
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <span>Отправить обращение</span>
+                                <span class="btn-icon">⟶</span>
+                            </button>
+                            <p class="form-note">Обычно мы отвечаем в течение 24 часов</p>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="ticket-info">
+                    <div class="info-card">
+                        <h3 class="info-title">⚡ Быстрая помощь</h3>
+                        <ul class="info-list">
+                            <li>🔍 Проверь <a href="/faq">FAQ</a> — возможно, ответ уже есть</li>
+                            <li>💬 Загляни в <a href="#">Discord</a> — там часто отвечают быстрее</li>
+                            <li>📚 Почитай <a href="#">Википедию</a> проекта</li>
+                            <li>📋 Убедись, что версия модпака актуальна</li>
+                            <li>⚙️ Проверь пинг до сервера</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="info-title">⏳ Время ответа</h3>
+                        <div class="response-times">
+                            <div class="response-item">
+                                <span class="response-category">Технические проблемы</span>
+                                <span class="response-time">~2-4 часа</span>
+                            </div>
+                            <div class="response-item">
+                                <span class="response-category">Платежи</span>
+                                <span class="response-time">~1-2 часа</span>
+                            </div>
+                            <div class="response-item">
+                                <span class="response-category">Жалобы</span>
+                                <span class="response-time">~12-24 часа</span>
+                            </div>
+                            <div class="response-item">
+                                <span class="response-category">Вопросы по гильдиям</span>
+                                <span class="response-time">~4-6 часов</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="info-title">📊 Статус заявок</h3>
+                        <div class="ticket-status">
+                            <div class="status-item">
+                                <span class="status-badge open">●</span>
+                                <span class="status-label">Открыто сейчас</span>
+                                <span class="status-count">12</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-badge in-progress">⚡</span>
+                                <span class="status-label">В работе</span>
+                                <span class="status-count">8</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-badge resolved">✓</span>
+                                <span class="status-label">Решено за 24ч</span>
+                                <span class="status-count">47</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card emergency">
+                        <h3 class="info-title">🚨 Экстренная ситуация</h3>
+                        <p class="info-text">
+                            Если сервер не работает или случилось что-то критическое — пиши в Discord в канал #emergency.
+                        </p>
+                        <a href="#" class="btn btn-outline btn-small">Discord</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Часто запрашиваемые решения -->
+        <section class="quick-solutions">
+            <h2 class="section-title">Быстрые <span class="gradient-text">решения</span></h2>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">🌐</div>
+                    <h3 class="solution-title">Не могу зайти на сервер</h3>
+                    <ul class="solution-list">
+                        <li>Проверь версию Minecraft (нужна 1.20+)</li>
+                        <li>Убедись, что установлен модпак</li>
+                        <li>Проверь, не забанен ли ты в <a href="/banlist">бан-листе</a></li>
+                        <li>Попробуй перезапустить лаунчер</li>
+                    </ul>
+                    <a href="#" class="solution-link">Подробнее →</a>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">💎</div>
+                    <h3 class="solution-title">Кристаллы не начисляются</h3>
+                    <ul class="solution-list">
+                        <li>Проверь историю операций в <a href="/bank">банке</a></li>
+                        <li>Подожди до 5 минут (иногда задержка)</li>
+                        <li>Убедись, что платёж прошёл</li>
+                        <li>Сделай скриншот чека</li>
+                    </ul>
+                    <a href="#" class="solution-link">Подробнее →</a>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">⚡</div>
+                    <h3 class="solution-title">Лаги и высокий пинг</h3>
+                    <ul class="solution-list">
+                        <li>Закрой лишние программы</li>
+                        <li>Уменьши дальность прорисовки</li>
+                        <li>Отключи шейдеры</li>
+                        <li>Проверь подключение к интернету</li>
+                    </ul>
+                    <a href="#" class="solution-link">Подробнее →</a>
+                </div>
+
+                <div class="solution-card">
+                    <div class="solution-icon">🔑</div>
+                    <h3 class="solution-title">Забыл пароль</h3>
+                    <ul class="solution-list">
+                        <li>Используй кнопку "Забыли пароль?" на странице входа</li>
+                        <li>Проверь почту (включая спам)</li>
+                        <li>Обратись в поддержку для восстановления</li>
+                    </ul>
+                    <a href="#" class="solution-link">Подробнее →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Мои обращения (если пользователь авторизован) -->
+        <section class="my-tickets">
+            <h2 class="section-title">Мои <span class="gradient-text">обращения</span></h2>
+            <div class="tickets-table">
+                <div class="tickets-header">
+                    <div class="ticket-cell">ID</div>
+                    <div class="ticket-cell">Тема</div>
+                    <div class="ticket-cell">Категория</div>
+                    <div class="ticket-cell">Статус</div>
+                    <div class="ticket-cell">Обновлено</div>
+                </div>
+                <div class="tickets-body">
+                    <div class="ticket-row">
+                        <div class="ticket-cell">#1234</div>
+                        <div class="ticket-cell">Не могу зайти на сервер</div>
+                        <div class="ticket-cell">Подключение</div>
+                        <div class="ticket-cell"><span class="status-badge resolved">Решено</span></div>
+                        <div class="ticket-cell">2 часа назад</div>
+                    </div>
+                    <div class="ticket-row">
+                        <div class="ticket-cell">#1235</div>
+                        <div class="ticket-cell">Кристаллы не начислены</div>
+                        <div class="ticket-cell">Платежи</div>
+                        <div class="ticket-cell"><span class="status-badge in-progress">В работе</span></div>
+                        <div class="ticket-cell">5 часов назад</div>
+                    </div>
+                    <div class="ticket-row">
+                        <div class="ticket-cell">#1236</div>
+                        <div class="ticket-cell">Жалоба на игрока</div>
+                        <div class="ticket-cell">Жалобы</div>
+                        <div class="ticket-cell"><span class="status-badge waiting">Ожидает</span></div>
+                        <div class="ticket-cell">1 день назад</div>
+                    </div>
+                </div>
+                <div class="tickets-footer">
+                    <a href="#" class="btn btn-outline btn-small">Все обращения</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script>
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+        document.querySelector('.nav').classList.toggle('active');
+    });
+
+    // Выбор категории при клике на карточку
+    document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            const select = document.getElementById('category');
+
+            // Найти и выбрать соответствующую опцию
+            for (let option of select.options) {
+                if (option.value === category) {
+                    option.selected = true;
+                    break;
+                }
+            }
+
+            // Подсветить выбранную категорию
+            document.querySelectorAll('.category-card').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+
+            // Прокрутить к форме
+            document.querySelector('.ticket-form').scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Отправка формы (демо)
+    document.querySelector('.form')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Обращение отправлено! Хранители свяжутся с тобой в ближайшее время.');
+    });
+</script>
+</body>
+</html>

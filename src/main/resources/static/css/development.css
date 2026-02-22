@@ -1,0 +1,348 @@
+/* ========== СТРАНИЦА В РАЗРАБОТКЕ ========== */
+.development-page {
+    min-height: calc(100vh - 80px - 300px); /* высота экрана минус шапка и футер */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.development-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+}
+
+.development-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* ========== МАГИЧЕСКИЙ ШАР ========== */
+.development-orb {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 40px;
+}
+
+.orb-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%,
+    var(--orange-light),
+    var(--orange-primary),
+    var(--orange-dark));
+    border-radius: 50%;
+    box-shadow: 0 0 60px var(--orange-glow);
+    animation: orbPulse 3s infinite alternate;
+}
+
+.orb-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--orange-primary);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.ring-1 {
+    width: 150px;
+    height: 150px;
+    animation: ringRotate 8s infinite linear;
+}
+
+.ring-2 {
+    width: 180px;
+    height: 180px;
+    animation: ringRotate 12s infinite linear reverse;
+}
+
+.ring-3 {
+    width: 210px;
+    height: 210px;
+    animation: ringRotate 16s infinite linear;
+}
+
+.orb-particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 280px;
+    pointer-events: none;
+}
+
+.orb-particles span {
+    position: absolute;
+    font-size: 20px;
+    color: var(--orange-primary);
+    opacity: 0.5;
+    animation: floatParticle 4s infinite alternate;
+}
+
+.orb-particles span:nth-child(1) {
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.orb-particles span:nth-child(2) {
+    bottom: -20px;
+    right: 50%;
+    transform: translateX(50%);
+    animation-delay: -1s;
+}
+
+.orb-particles span:nth-child(3) {
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: -2s;
+}
+
+.orb-particles span:nth-child(4) {
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: -3s;
+}
+
+@keyframes orbPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 60px var(--orange-glow);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow: 0 0 100px var(--orange-glow);
+    }
+}
+
+@keyframes ringRotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(10px, -10px) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* ========== ТЕКСТ ========== */
+.development-title {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: var(--gradient-mixed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.development-subtitle {
+    font-size: 22px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.development-divider {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.divider-rune {
+    font-size: 28px;
+    color: var(--orange-primary);
+    opacity: 0.6;
+    animation: runeGlow 2s infinite alternate;
+}
+
+.divider-rune:nth-child(2) { animation-delay: -0.4s; }
+.divider-rune:nth-child(3) { animation-delay: -0.8s; }
+.divider-rune:nth-child(4) { animation-delay: -1.2s; }
+.divider-rune:nth-child(5) { animation-delay: -1.6s; }
+
+@keyframes runeGlow {
+    0% { opacity: 0.3; text-shadow: 0 0 5px var(--orange-primary); }
+    100% { opacity: 0.8; text-shadow: 0 0 20px var(--orange-primary); }
+}
+
+.development-description {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========== ПРОГРЕСС-БАР ========== */
+.development-progress {
+    max-width: 400px;
+    margin: 0 auto 40px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 140, 66, 0.2);
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-orange);
+    border-radius: 4px;
+    animation: progressPulse 2s infinite;
+}
+
+@keyframes progressPulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+/* ========== КНОПКИ ========== */
+.development-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+/* ========== МАГИЧЕСКАЯ ПОДПИСЬ ========== */
+.development-signature {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-style: italic;
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.development-signature::before,
+.development-signature::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--orange-primary);
+    font-size: 20px;
+}
+
+.development-signature::before {
+    left: -15px;
+}
+
+.development-signature::after {
+    right: -15px;
+}
+
+/* ========== АДАПТАЦИЯ ========== */
+@media (max-width: 768px) {
+    .development-title {
+        font-size: 42px;
+    }
+
+    .development-subtitle {
+        font-size: 18px;
+    }
+
+    .development-description {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    .development-orb {
+        width: 150px;
+        height: 150px;
+    }
+
+    .orb-core {
+        width: 80px;
+        height: 80px;
+    }
+
+    .ring-1 {
+        width: 120px;
+        height: 120px;
+    }
+
+    .ring-2 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .ring-3 {
+        width: 180px;
+        height: 180px;
+    }
+
+    .development-actions {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .development-actions .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .development-title {
+        font-size: 36px;
+    }
+
+    .development-subtitle {
+        font-size: 16px;
+    }
+
+    .divider-rune {
+        font-size: 20px;
+        gap: 12px;
+    }
+
+    .development-signature {
+        font-size: 14px;
+    }
+}
