@@ -619,41 +619,173 @@ body {
 
 /* ========== ПРЕИМУЩЕСТВА ========== */
 .features {
-    padding: 60px 0;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.features::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,140,66,0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
 }
 
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
+    gap: 24px;
+    margin-top: 40px;
 }
 
-.feature-item {
-    text-align: center;
-    padding: 24px;
+.feature-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 140, 66, 0.2);
     border-radius: var(--border-radius-lg);
-    transition: all 0.3s;
-    background: rgba(20, 30, 45, 0.3);
-    backdrop-filter: blur(5px);
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    z-index: 1;
 }
 
-.feature-item:hover {
-    background: rgba(255, 140, 66, 0.1);
-    transform: scale(1.05);
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-mixed);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--orange-primary);
+    box-shadow: var(--shadow-orange);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
 }
 
 .feature-icon {
     font-size: 48px;
     margin-bottom: 16px;
     filter: drop-shadow(0 0 10px var(--orange-primary));
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
-.feature-item h3 {
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px var(--orange-primary));
+}
+
+.feature-title {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 8px;
     color: var(--text-primary);
+    position: relative;
+    z-index: 2;
 }
+
+.feature-text {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 2;
+}
+
+.feature-glow {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.feature-card:hover .feature-glow {
+    opacity: 0.5;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .feature-card {
+        padding: 20px 15px;
+    }
+
+    .feature-icon {
+        font-size: 40px;
+    }
+
+    .feature-title {
+        font-size: 16px;
+    }
+
+    .feature-text {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* Анимация появления */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.feature-card {
+    animation: fadeInScale 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+.feature-card:nth-child(5) { animation-delay: 0.5s; }
+.feature-card:nth-child(6) { animation-delay: 0.6s; }
+.feature-card:nth-child(7) { animation-delay: 0.7s; }
+.feature-card:nth-child(8) { animation-delay: 0.8s; }
+.feature-card:nth-child(9) { animation-delay: 0.9s; }
+.feature-card:nth-child(10) { animation-delay: 1.0s; }
 
 .feature-item p {
     color: var(--text-secondary);
