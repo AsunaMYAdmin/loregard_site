@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${siteTitle} ?: 'Loregard | Мифы и легенды'">Loregard | Мифы и легенды</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+    <div class="rune rune-1"></div>
+    <div class="rune rune-2"></div>
+    <div class="rune rune-3"></div>
+    <div class="rune rune-4"></div>
+    <div class="mist mist-1"></div>
+    <div class="mist mist-2"></div>
+    <div class="ancient-symbol symbol-1">ᛉ</div>
+    <div class="ancient-symbol symbol-2">ᛟ</div>
+    <div class="ancient-symbol symbol-3">ᚨ</div>
+    <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<header class="header">
+    <div class="container header-container">
+        <div class="logo">
+            <span class="logo-icon">⚔️</span>
+            <span class="logo-text" th:text="${siteName} ?: 'Loregard'">Loregard</span>
+        </div>
+        <nav class="nav">
+            <a href="#" class="nav-link" th:href="@{/}">Главная</a>
+            <a href="#" class="nav-link" th:href="@{/profile}">Профиль</a>
+            <a href="#" class="nav-link" th:href="@{/shop}">Магазин</a>
+            <a href="#" class="nav-link" th:href="@{/banlist}">Бан-лист</a>
+            <a href="#" class="nav-link" th:href="@{/top}">ТОП</a>
+            <a href="#" class="nav-link" th:href="@{/bank}">Банк</a>
+            <a href="#" class="nav-link" th:href="@{/forum}">Форум</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#" class="btn btn-outline" th:href="@{/login}">Войти</a>
+            <a href="#" class="btn btn-primary" th:href="@{/play}">Играть</a>
+        </div>
+        <button class="mobile-menu-btn">☰</button>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-container">
+        <div class="hero-content">
+            <div class="hero-badge" th:text="${heroBadge} ?: '⚡ Легенда пробуждается ⚡'">⚡ Легенда пробуждается ⚡</div>
+            <h1 class="hero-title">
+                <span th:text="${heroTitleStart} ?: 'Мир'">Мир</span>
+                <span class="gradient-text" th:text="${worldName} ?: 'Loregard'">Loregard</span>
+                <span th:text="${heroTitleEnd} ?: 'ждёт героев'">ждёт героев</span>
+            </h1>
+            <p class="hero-description" th:text="${heroDescription} ?: 'Погрузись в мир магии, сражений и древних пророчеств. Исследуй земли, сражайся с монстрами и создавай свою легенду.'">
+                Погрузись в мир магии, сражений и древних пророчеств. Исследуй земли, сражайся с монстрами и создавай свою легенду.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-value" th:text="${onlinePlayers} ?: '2 847'">2 847</div>
+                    <div class="stat-label">Игроков онлайн</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" th:text="${seasonDate} ?: '15.03.25'">15.03.25</div>
+                    <div class="stat-label">Запуск сезона</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" th:text="${serverRank} ?: '№7'">№7</div>
+                    <div class="stat-label">ТОП серверов</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary btn-large" th:href="@{/play}">
+                    <span class="btn-text" th:text="${playButtonText} ?: 'Начать приключение'">Начать приключение</span>
+                    <span class="btn-icon">⟶</span>
+                </a>
+                <a href="#" class="btn btn-outline btn-large" th:href="@{/about}">
+                    <span class="btn-text" th:text="${aboutButtonText} ?: 'О проекте'">О проекте</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="mythical-scene">
+                <div class="floating-runes">
+                    <span>ᚠ</span><span>ᚢ</span><span>ᚦ</span><span>ᚨ</span><span>ᚱ</span>
+                    <span>ᚲ</span><span>ᚷ</span><span>ᚹ</span><span>ᚺ</span><span>ᚾ</span>
+                </div>
+                <div class="dragon-silhouette"></div>
+                <div class="ancient-pillar pillar-1"></div>
+                <div class="ancient-pillar pillar-2"></div>
+                <div class="magic-circle"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="servers">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Миры <span class="gradient-text" th:text="${worldName} ?: 'Loregard'">Loregard</span></h2>
+            <p class="section-description" th:text="${serversDescription} ?: 'Выбери свой путь в одном из миров'">
+                Выбери свой путь в одном из миров
+            </p>
+        </div>
+
+        <div class="servers-grid" th:each="server : ${servers != null ? servers : defaultServers}">
+            <div class="server-card" th:each="server, iterStat : ${servers != null ? servers : defaultServers}"
+                 th:classappend="${server.featured ? 'featured' : ''}">
+                <div class="server-badge" th:if="${server.badge != null}" th:text="${server.badge}">Новый</div>
+                <div class="server-icon" th:text="${server.icon}">🗺️</div>
+                <h3 class="server-title" th:text="${server.name}">Мир Арден</h3>
+                <div class="server-status" th:classappend="${server.statusClass}" th:text="${server.status}">● Онлайн 1 245</div>
+                <p class="server-description" th:text="${server.description}">Классический мир для начала приключений</p>
+                <div class="server-features">
+                    <span th:each="feature : ${server.features}" th:text="${feature}">⚔️ PvP</span>
+                </div>
+                <a href="#" class="server-btn" th:classappend="${server.featured ? 'btn-primary' : 'btn-outline'}"
+                   th:href="@{${server.link}}">Выбрать мир</a>
+            </div>
+
+            <div class="server-card featured">
+                <div class="server-badge">Новый</div>
+                <div class="server-icon">🌲</div>
+                <h3 class="server-title">Эльфийские леса</h3>
+                <div class="server-status online">● Онлайн 876</div>
+                <p class="server-description">Таинственные леса, магия и древние тайны</p>
+                <div class="server-features">
+                    <span>🏹 Лучники</span>
+                    <span>🧝 Эльфы</span>
+                    <span>✨ Магия</span>
+                </div>
+                <a href="#" class="btn btn-primary server-btn">Выбрать мир</a>
+            </div>
+
+            <div class="server-card">
+                <div class="server-icon">⛰️</div>
+                <h3 class="server-title">Гномьи горы</h3>
+                <div class="server-status high">● Онлайн 654</div>
+                <p class="server-description">Подземные чертоги, кузницы и несметные сокровища</p>
+                <div class="server-features">
+                    <span>⚒️ Кузнецы</span>
+                    <span>🪓 Топоры</span>
+                    <span>💎 Рудники</span>
+                </div>
+                <a href="#" class="btn btn-outline server-btn">Выбрать мир</a>
+            </div>
+
+            <div class="server-card">
+                <div class="server-icon">📜</div>
+                <h3 class="server-title">Магическая академия</h3>
+                <div class="server-status medium">● Онлайн 432</div>
+                <p class="server-description">Для тех, кто хочет постичь тайны магии</p>
+                <div class="server-features">
+                    <span>🔮 Заклинания</span>
+                    <span>📚 Гримуары</span>
+                    <span>🧪 Зелья</span>
+                </div>
+                <a href="#" class="btn btn-outline server-btn">Выбрать мир</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="news">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Последние <span class="gradient-text">новости</span></h2>
+            <p class="section-description">События мира Loregard</p>
+        </div>
+
+        <div class="news-grid" th:each="newsItem : ${news != null ? news : defaultNews}">
+            <div class="news-card" th:each="newsItem, iterStat : ${news != null ? news : defaultNews}">
+                <div class="news-date" th:text="${newsItem.date}">15.02.2026</div>
+                <h3 class="news-title" th:text="${newsItem.title}">Открытие нового мира</h3>
+                <p class="news-excerpt" th:text="${newsItem.excerpt}">Мы рады объявить об открытии...</p>
+                <a href="#" class="news-link" th:href="@{${newsItem.link}}">Читать далее →</a>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">14.02.2026</div>
+                <h3 class="news-title">Обновление баланса</h3>
+                <p class="news-excerpt">Изменения классов и способностей...</p>
+                <a href="#" class="news-link">Читать далее →</a>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">13.02.2026</div>
+                <h3 class="news-title">Ивент "Драконья охота"</h3>
+                <p class="news-excerpt">Уникальное событие с ценными наградами...</p>
+                <a href="#" class="news-link">Читать далее →</a>
+            </div>
+
+            <div class="news-card">
+                <div class="news-date">12.02.2026</div>
+                <h3 class="news-title">Технические работы</h3>
+                <p class="news-excerpt">Плановое обслуживание серверов...</p>
+                <a href="#" class="news-link">Читать далее →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Особенности <span class="gradient-text">Loregard</span></h2>
+            <p class="section-description">10 причин выбрать наш мир</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚔️</div>
+                <h3 class="feature-title">PvP-арены</h3>
+                <p class="feature-text">Сражайся с лучшими воинами миров</p>
+                <div class="feature-glow"></div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏰</div>
+                <h3 class="feature-title">Клановые замки</h3>
+                <p class="feature-text">Захватывай и удерживай крепости</p>
+                <div class="feature-glow"></div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🐉</div>
+                <h3 class="feature-title">Драконы</h3>
+                <p class="feature-text">Охоться на легендарных созданий</p>
+                <div class="feature-glow"></div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📜</div>
+                <h3 class="feature-title">Квесты</h3>
+                <p class="feature-text">Сотни заданий с уникальным сюжетом</p>
+                <div class="feature-glow"></div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3 class="feature-title">Гильдии</h3>
+                <p class="feature-text">Объединяйся с другими игроками</p>
+                <div class="feature-glow"></div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💎</div>
+                <h3 class="feature-title">Экономика</h3>
+                <p class="feature-text">Развитая торговая система</p>
+                <div class="feature-glow"></div>
+            </div>
+
+            <!-- Новые 4 элемента -->
+            <div class="feature-card">
+                <div class="feature-icon">🏹</div>
+                <h3 class="feature-title">Охотничьи угодья</h3>
+                <p class="feature-text">Уникальные ресурсы и редкие звери</p>
+                <div class="feature-glow"></div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔮</div>
+                <h3 class="feature-title">Магические артефакты</h3>
+                <p class="feature-text">Древние предметы с огромной силой</p>
+                <div class="feature-glow"></div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3 class="feature-title">Исследование миров</h3>
+                <p class="feature-text">4 уникальных мира для приключений</p>
+                <div class="feature-glow"></div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">События каждый день</h3>
+                <p class="feature-text">Ивенты, турниры и фестивали</p>
+                <div class="feature-glow"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title" th:text="${ctaTitle} ?: 'Готов вписать своё имя в легенды?'">Готов вписать своё имя в легенды?</h2>
+            <p class="cta-description" th:text="${ctaDescription} ?: 'Присоединяйся к тысячам игроков прямо сейчас'">
+                Присоединяйся к тысячам игроков прямо сейчас
+            </p>
+            <a href="#" class="btn btn-primary btn-large" th:href="@{/play}">
+                <span class="btn-text" th:text="${playButtonText} ?: 'Начать игру'">Начать игру</span>
+            </a>
+        </div>
+        <div class="cta-decoration"></div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <span class="logo-icon">⚔️</span>
+                    <span class="logo-text" th:text="${siteName} ?: 'Loregard'">Loregard</span>
+                </div>
+                <p class="footer-description" th:text="${footerDescription} ?: 'Мир магии, сражений и древних легенд'">
+                    Мир магии, сражений и древних легенд
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link">VK</a>
+                    <a href="#" class="social-link">TG</a>
+                    <a href="#" class="social-link">DS</a>
+                    <a href="#" class="social-link">YT</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Информация</h4>
+                <ul>
+                    <li><a href="#" th:href="@{/about}">О проекте</a></li>
+                    <li><a href="#" th:href="@{/rules}">Правила</a></li>
+                    <li><a href="#" th:href="@{/staff}">Администрация</a></li>
+                    <li><a href="#" th:href="@{/donate}">Донат</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Игровое</h4>
+                <ul>
+                    <li><a href="#" th:href="@{/top}">ТОП игроков</a></li>
+                    <li><a href="#" th:href="@{/guilds}">Гильдии</a></li>
+                    <li><a href="#" th:href="@{/wiki}">Википедия</a></li>
+                    <li><a href="#" th:href="@{/map}">Карта мира</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Поддержка</h4>
+                <ul>
+                    <li><a href="#" th:href="@{/faq}">FAQ</a></li>
+                    <li><a href="#" th:href="@{/support}">Техподдержка</a></li>
+                    <li><a href="#" th:href="@{/contacts}">Контакты</a></li>
+                    <li><a href="#" th:href="@{/banlist}">Бан-лист</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright" th:text="${copyright} ?: '© 2026 Loregard. Все права защищены древними'">
+                © 2026 Loregard. Все права защищены древними
+            </div>
+            <div class="magic-signature">✦ Хранители миров ✦</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Мобильное меню (простой JS)
+    document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+        document.querySelector('.nav').classList.toggle('active');
+    });
+</script>
+</body>
+</html>
