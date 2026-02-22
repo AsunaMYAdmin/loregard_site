@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход | Loregard</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+  <div class="rune rune-1"></div>
+  <div class="rune rune-2"></div>
+  <div class="rune rune-3"></div>
+  <div class="rune rune-4"></div>
+  <div class="mist mist-1"></div>
+  <div class="mist mist-2"></div>
+  <div class="ancient-symbol symbol-1">ᛉ</div>
+  <div class="ancient-symbol symbol-2">ᛟ</div>
+  <div class="ancient-symbol symbol-3">ᚨ</div>
+  <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<!-- Убираем стандартный header, так как страница входа отдельная -->
+<div class="login-page">
+  <div class="login-container">
+    <!-- Левая часть с порталом -->
+    <div class="login-portal">
+      <div class="portal-content">
+        <div class="portal-circle"></div>
+        <div class="portal-runes">
+          <span>ᚠ</span>
+          <span>ᚢ</span>
+          <span>ᚦ</span>
+          <span>ᚨ</span>
+          <span>ᚱ</span>
+        </div>
+        <h1 class="portal-title">Loregard</h1>
+        <p class="portal-description">
+          Открой портал в мир магии, сражений и древних легенд
+        </p>
+      </div>
+    </div>
+
+    <!-- Правая часть с формой -->
+    <div class="login-form-container">
+      <div class="login-form-wrapper">
+        <h2 class="form-title">Вход в <span class="gradient-text">миры</span></h2>
+
+        <!-- Блок с ошибкой (будет показываться при неверном логине/пароле) -->
+        <div class="error-message" th:if="${param.error}" th:remove="tag">
+          <div class="alert alert-error">
+            <span class="alert-icon">⚠️</span>
+            <span>Неверное имя пользователя или пароль</span>
+          </div>
+        </div>
+
+        <!-- Блок с выходом (после логаута) -->
+        <div class="success-message" th:if="${param.logout}" th:remove="tag">
+          <div class="alert alert-success">
+            <span class="alert-icon">✅</span>
+            <span>Вы успешно вышли из аккаунта</span>
+          </div>
+        </div>
+
+        <!-- Форма входа (Spring Security стандарт) -->
+        <form method="post" th:action="@{/login}" class="login-form">
+          <div class="form-group">
+            <label for="username" class="form-label">
+              <span class="label-icon">👤</span>
+              Имя пользователя
+            </label>
+            <input type="text"
+                   id="username"
+                   name="username"
+                   class="form-input"
+                   placeholder="Введите ваш ник"
+                   required
+                   autofocus>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="form-label">
+              <span class="label-icon">🔒</span>
+              Пароль
+            </label>
+            <input type="password"
+                   id="password"
+                   name="password"
+                   class="form-input"
+                   placeholder="Введите пароль"
+                   required>
+          </div>
+
+          <div class="form-options">
+            <label class="checkbox-label">
+              <input type="checkbox" name="remember-me" class="checkbox">
+              <span class="checkbox-text">Запомнить меня</span>
+            </label>
+            <a href="/forgot-password" class="forgot-link">Забыли пароль?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-login">
+            <span>Войти в миры</span>
+            <span class="btn-icon">⟶</span>
+          </button>
+        </form>
+
+        <!-- Разделитель -->
+        <div class="login-divider">
+          <span class="divider-text">или</span>
+        </div>
+
+        <!-- Ссылка на регистрацию -->
+        <div class="register-section">
+          <p class="register-text">Впервые в Loregard?</p>
+          <a href="/register" class="btn btn-outline btn-register">
+            <span>Создать аккаунт</span>
+            <span class="btn-icon">⚔️</span>
+          </a>
+        </div>
+
+        <!-- Магическая подпись -->
+        <div class="login-signature">
+          <span>Да откроются врата</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Добавляем класс для анимации при загрузке
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.login-container').classList.add('loaded');
+  });
+</script>
+</body>
+</html>

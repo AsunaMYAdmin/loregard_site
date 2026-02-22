@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация | Loregard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="bg-decoration">
+    <div class="rune rune-1"></div>
+    <div class="rune rune-2"></div>
+    <div class="rune rune-3"></div>
+    <div class="rune rune-4"></div>
+    <div class="mist mist-1"></div>
+    <div class="mist mist-2"></div>
+    <div class="ancient-symbol symbol-1">ᛉ</div>
+    <div class="ancient-symbol symbol-2">ᛟ</div>
+    <div class="ancient-symbol symbol-3">ᚨ</div>
+    <div class="ancient-symbol symbol-4">ᚱ</div>
+</div>
+
+<div class="login-page">
+    <div class="login-container">
+        <!-- Левая часть с порталом -->
+        <div class="login-portal">
+            <div class="portal-content">
+                <div class="portal-circle"></div>
+                <div class="portal-runes">
+                    <span>ᚠ</span>
+                    <span>ᚢ</span>
+                    <span>ᚦ</span>
+                    <span>ᚨ</span>
+                    <span>ᚱ</span>
+                </div>
+                <h1 class="portal-title">Стань героем</h1>
+                <p class="portal-description">
+                    Присоединяйся к тысячам искателей приключений в мире Loregard
+                </p>
+            </div>
+        </div>
+
+        <!-- Правая часть с формой регистрации -->
+        <div class="login-form-container">
+            <div class="login-form-wrapper">
+                <h2 class="form-title">Создание <span class="gradient-text">героя</span></h2>
+
+                <!-- Блок с ошибками (будет показываться при проблемах) -->
+                <div class="error-message" th:if="${error}" th:remove="tag">
+                    <div class="alert alert-error">
+                        <span class="alert-icon">⚠️</span>
+                        <span th:text="${error}">Ошибка регистрации</span>
+                    </div>
+                </div>
+
+                <!-- Форма регистрации -->
+                <form method="post" th:action="@{/register}" class="login-form">
+                    <!-- Имя пользователя -->
+                    <div class="form-group">
+                        <label for="username" class="form-label">
+                            <span class="label-icon">👤</span>
+                            Имя героя
+                        </label>
+                        <input type="text"
+                               id="username"
+                               name="username"
+                               class="form-input"
+                               placeholder="Например: ShadowDragon"
+                               minlength="3"
+                               maxlength="20"
+                               required
+                               autofocus>
+                        <small class="form-hint">От 3 до 20 символов, только буквы и цифры</small>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            <span class="label-icon">📧</span>
+                            Магическая почта
+                        </label>
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               class="form-input"
+                               placeholder="hero@loregard.ru"
+                               required>
+                    </div>
+
+                    <!-- Пароль -->
+                    <div class="form-group">
+                        <label for="password" class="form-label">
+                            <span class="label-icon">🔒</span>
+                            Тайное слово
+                        </label>
+                        <input type="password"
+                               id="password"
+                               name="password"
+                               class="form-input"
+                               placeholder="Придумайте пароль"
+                               minlength="6"
+                               required>
+                        <small class="form-hint">Минимум 6 символов</small>
+                    </div>
+
+                    <!-- Подтверждение пароля -->
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label">
+                            <span class="label-icon">🔐</span>
+                            Подтверждение
+                        </label>
+                        <input type="password"
+                               id="confirmPassword"
+                               name="confirmPassword"
+                               class="form-input"
+                               placeholder="Повторите пароль"
+                               required>
+                    </div>
+
+                    <!-- Согласие с правилами -->
+                    <div class="form-group terms-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="agree" class="checkbox" required>
+                            <span class="checkbox-text">
+                                Я согласен с <a href="/rules" class="terms-link">правилами</a> мира Loregard
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Кнопка регистрации -->
+                    <button type="submit" class="btn btn-primary btn-login">
+                        <span>Создать героя</span>
+                        <span class="btn-icon">⚔️</span>
+                    </button>
+                </form>
+
+                <!-- Разделитель -->
+                <div class="login-divider">
+                    <span class="divider-text">уже есть аккаунт?</span>
+                </div>
+
+                <!-- Ссылка на вход -->
+                <div class="register-section">
+                    <a href="/login" class="btn btn-outline btn-register">
+                        <span>Войти в миры</span>
+                        <span class="btn-icon">⟶</span>
+                    </a>
+                </div>
+
+                <!-- Магическая подпись -->
+                <div class="login-signature">
+                    <span>Да начнётся легенда</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Простая валидация паролей на клиенте
+    document.querySelector('form')?.addEventListener('submit', function(e) {
+        const password = document.getElementById('password').value;
+        const confirm = document.getElementById('confirmPassword').value;
+
+        if (password !== confirm) {
+            e.preventDefault();
+            alert('Пароли не совпадают!');
+        }
+    });
+
+    // Анимация загрузки
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.login-container').classList.add('loaded');
+    });
+</script>
+</body>
+</html>
