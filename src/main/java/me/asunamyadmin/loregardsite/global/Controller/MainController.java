@@ -10,8 +10,6 @@ public class MainController {
     @Value("${bank.url}")
     private String bankURL;
 
-
-
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("activePage", "home");

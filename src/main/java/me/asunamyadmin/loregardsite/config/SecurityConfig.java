@@ -14,7 +14,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         return http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/**",  "/index", "/login", "/css/**", "/js/**", "/images/**").permitAll()
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/",  "/index",
+                                "/login", "/css/**", "/js/**", "/images/**", "/about", "/heroes",
+                                "/bank", "/forum", "/faq", "/staff")
+                        .permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login")
