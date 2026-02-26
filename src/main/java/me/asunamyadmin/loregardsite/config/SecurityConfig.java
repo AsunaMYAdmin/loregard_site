@@ -33,15 +33,14 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         return http
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/",  "/index",
-                                "/login", "/css/**", "/js/**", "/images/**", "/about", "/heroes",
-                                "/bank", "/forum", "/faq", "/staff", "/register")
+                                 "/css/**", "/js/**", "/images/**", "/about", "/heroes",
+                                "/bank", "/forum", "/faq", "/staff", "/register", "/login",
+                                "/error/**", "/error")
                         .permitAll()
-                        .requestMatchers("/login").anonymous()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/profile")
-                        .permitAll()
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")

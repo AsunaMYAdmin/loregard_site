@@ -1,6 +1,8 @@
 package me.asunamyadmin.loregardsite.global.Controller;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -113,7 +115,11 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public String loginPage(@RequestParam(value = "error", required = false) String ignoredError) {
+    public String loginPage(@RequestParam(value = "error", required = false) String ignoredError, Authentication auth) {
+        if (auth != null && auth.isAuthenticated()
+                && !(auth instanceof AnonymousAuthenticationToken)) {
+            return "redirect:/profile";
+        }
         return "login";
     }
 
@@ -125,5 +131,11 @@ public class MainController {
     @GetMapping("/forgot-password")
     public String forgotPasswordPage() {
         return "forgot-password";
+    }
+
+    @GetMapping("/logout")
+    public String logoutPage() {
+
+        return "redirect:/logout";
     }
 }
