@@ -3,8 +3,8 @@ package me.asunamyadmin.loregardsite.profile.data;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import me.asunamyadmin.loregardsite.profile.domain.FirstlyProfile;
 import me.asunamyadmin.loregardsite.profile.domain.ProfileStatus;
+import me.asunamyadmin.loregardsite.security.UserRole;
 
 import java.time.LocalDateTime;
 
@@ -14,26 +14,28 @@ import java.time.LocalDateTime;
 public class ProfileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Setter
+    @Column(nullable = false, unique = true, name = "username")
     private String username;
-    private int userId;
-    private int accountNumber;
-    private int gameID;
+    @Column(name = "password", nullable = false)
+    private String password;
+    @Column(name = "account_number", unique = true)
+    private Integer accountNumber;
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
     @Enumerated(EnumType.STRING)
+    @Column(name = "status")
     private ProfileStatus status;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
+    private UserRole role;
 
     @PrePersist
     public void prePersist() {
         createdAt = LocalDateTime.now();
         status = ProfileStatus.ACTIVE;
-    }
-
-    public void register(FirstlyProfile firstlyProfile){
-        userId = firstlyProfile.userId();
-        accountNumber = firstlyProfile.accountNumber();
-        gameID = firstlyProfile.gameID();
+        role = UserRole.USER;
     }
 
     public void freezeProfile(){
@@ -46,5 +48,24 @@ public class ProfileEntity {
 
     public void ban() {
         status = ProfileStatus.BANNED;
+    }
+
+    public void setGroup(UserRole role){
+        this.role = role;
+    }
+
+    public void setAccountNumber(Integer accountNumber) {
+        if (this.accountNumber != null) {
+            return;
+        }
+        this.accountNumber = accountNumber;
+    }
+
+
+    public void setPassword(String password) {
+        if (this.password != null) {
+            return;
+        }
+        this.password = password;
     }
 }

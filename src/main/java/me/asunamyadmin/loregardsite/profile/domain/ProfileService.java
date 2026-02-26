@@ -5,8 +5,10 @@ import me.asunamyadmin.loregardsite.profile.data.ProfileRepository;
 import me.asunamyadmin.loregardsite.profile.exception.AlreadyHaveThisStatusException;
 import me.asunamyadmin.loregardsite.profile.exception.ProfileNotFoundException;
 import me.asunamyadmin.loregardsite.profile.exception.UsernameAlreadyTakenException;
+import me.asunamyadmin.loregardsite.security.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,11 +46,15 @@ public class ProfileService {
         return entity.isPresent();
     }
 
+    @Transactional
     public Profile createProfile(Profile profile){
         ProfileEntity profileEntity = mapper.mapProfileToProfileEntity(profile);
-        return mapper.mapProfileEntityToProfile(profileRepository.save(profileEntity));
+        profileEntity.setAccountNumber(profileRepository.getNextAccountNumber());
+        profileRepository.save(profileEntity);
+        return mapper.mapProfileEntityToProfile(profileEntity);
     }
 
+    @Transactional
     public void changeNameProfile(int id, String newName){
         ProfileEntity entity = profileRepository.findById(id).orElseThrow(ProfileNotFoundException::new);
         if (findProfileByUsername(newName)){
@@ -57,11 +63,13 @@ public class ProfileService {
         entity.setUsername(newName);
     }
 
+    @Transactional
     public void deleteProfileById(int id){
         ProfileEntity entity = profileRepository.findById(id).orElseThrow(ProfileNotFoundException::new);
         profileRepository.delete(entity);
     }
 
+    @Transactional
     public void ban(int id){
         ProfileEntity entity = profileRepository.findById(id).orElseThrow(ProfileNotFoundException::new);
         if (entity.getStatus() == ProfileStatus.BANNED) {
@@ -70,6 +78,7 @@ public class ProfileService {
         entity.ban();
     }
 
+    @Transactional
     public void freeze(int id){
         ProfileEntity entity = profileRepository.findById(id).orElseThrow(ProfileNotFoundException::new);
         if (entity.getStatus() == ProfileStatus.INACTIVE) {
@@ -78,11 +87,22 @@ public class ProfileService {
         entity.freezeProfile();
     }
 
+    @Transactional
     public void activate(int id){
         ProfileEntity entity = profileRepository.findById(id).orElseThrow(ProfileNotFoundException::new);
         if (entity.getStatus() == ProfileStatus.ACTIVE) {
             throw new AlreadyHaveThisStatusException();
         }
         entity.activateProfile();
+    }
+
+    @Transactional
+    public void setGroup(int id, UserRole role){
+        ProfileEntity entity = profileRepository.findById(id).orElseThrow(ProfileNotFoundException::new);
+        if (entity.getStatus() == ProfileStatus.INACTIVE || entity.getStatus() == ProfileStatus.BANNED) {
+            throw new IllegalStateException();
+        }
+        entity.setGroup(role);
+        profileRepository.save(entity);
     }
 }

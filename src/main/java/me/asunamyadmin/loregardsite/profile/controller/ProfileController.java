@@ -2,6 +2,7 @@ package me.asunamyadmin.loregardsite.profile.controller;
 
 import me.asunamyadmin.loregardsite.profile.domain.Profile;
 import me.asunamyadmin.loregardsite.profile.domain.ProfileService;
+import me.asunamyadmin.loregardsite.security.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -67,6 +68,12 @@ public class ProfileController {
             default:
                 profileService.activate(id);
         }
+        return ResponseEntity.ok().build();
+    }
+
+    @PatchMapping("/setGroup/{id}")
+    public ResponseEntity<Void> updateProfileGroup(@PathVariable int id, @RequestParam String group) {
+        profileService.setGroup(id, UserRole.valueOf(group));
         return ResponseEntity.ok().build();
     }
 }
