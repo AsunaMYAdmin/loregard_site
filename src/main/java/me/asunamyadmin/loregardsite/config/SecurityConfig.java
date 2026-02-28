@@ -6,6 +6,7 @@ import me.asunamyadmin.loregardsite.profile.exception.ProfileNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,6 +31,7 @@ public class SecurityConfig {
     }
 
     @Bean
+    @Order(2)
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         return http
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/",  "/index",
@@ -40,7 +42,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/profile")
+                        .permitAll()
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
