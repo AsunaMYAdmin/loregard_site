@@ -55,13 +55,6 @@ public class AuthorizationServerConfig {
     public WebSecurityCustomizer  webSecurityCustomizer(HttpFirewall firewall) {
         return (web) -> web.httpFirewall(firewall);
     }
-
-//    @Bean
-//    public RegisteredClientRepository registeredClientRepository() {
-//        // Теперь используем нашу JPA реализацию
-//        return new JpaRegisteredClientRepository();
-//    }
-
     @Bean
     public AuthorizationServerSettings authorizationServerSettings() {
         return AuthorizationServerSettings.builder()

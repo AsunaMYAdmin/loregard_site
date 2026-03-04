@@ -20,8 +20,6 @@ import java.time.LocalDateTime;
 @Controller
 public class AuthController {
     private final ProfileService profileService;
-
-    @Autowired
     private final AuthenticationManager authenticationManager;
 
     @Autowired
@@ -48,6 +46,7 @@ public class AuthController {
         forceAutoLogin(request, registerRequest.username(), registerRequest.password());
         return "redirect:/profile";
     }
+
 
     private void forceAutoLogin(HttpServletRequest request,
                                 String username, String password) {

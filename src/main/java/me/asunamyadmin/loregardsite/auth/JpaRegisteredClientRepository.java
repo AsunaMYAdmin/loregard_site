@@ -58,6 +58,7 @@ public class JpaRegisteredClientRepository implements RegisteredClientRepository
                 .clientSettings(ClientSettings.builder()
                         .requireAuthorizationConsent(entity.isRequireAuthorizationConsent())
                         .build())
+                .postLogoutRedirectUri("https://bank.loregard.ru/")
                 .build();
     }
 }

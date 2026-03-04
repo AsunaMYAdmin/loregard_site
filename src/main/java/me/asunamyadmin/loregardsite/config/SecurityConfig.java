@@ -34,32 +34,26 @@ public class SecurityConfig {
     @Order(2)
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         return http
+                .csrf(csrf -> csrf
+                        .ignoringRequestMatchers("/api/discord/**"))
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/",  "/index",
                                  "/css/**", "/js/**", "/images/**", "/about", "/heroes",
                                 "/bank", "/forum", "/faq", "/staff", "/register", "/login",
                                 "/error/**", "/error")
                         .permitAll()
+                        .requestMatchers("/api/discord/**").authenticated()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login")
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutUrl("/logout")
                         .logoutSuccessUrl("/")
-                        .permitAll()
+                        .invalidateHttpSession(true)
+                        .clearAuthentication(true)
                 )
                 .build();
     }
-
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) {
-//        return http
-//                .csrf(AbstractHttpConfigurer::disable)
-//                .authorizeHttpRequests(auth -> auth.requestMatchers("/**").permitAll())
-//                .build();
-//    }
-
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
