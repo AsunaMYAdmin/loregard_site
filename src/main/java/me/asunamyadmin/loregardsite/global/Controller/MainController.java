@@ -139,8 +139,10 @@ public class MainController {
         return "redirect:/logout";
     }
 
-//    @GetMapping("/outh")
-//    public String oauthPage() {
-//        return "oauth_login";
-//    }
+    @GetMapping("/settings")
+    public String settingsPage() {
+        return "settings";
+    }
+
+
 }
