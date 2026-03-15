@@ -1,12 +1,14 @@
 package me.asunamyadmin.loregardsite.profile.domain;
 
+import lombok.RequiredArgsConstructor;
+import me.asunamyadmin.loregardsite.API.discord.data.DiscordProfileEntity;
+import me.asunamyadmin.loregardsite.API.discord.data.DiscordProfileRepository;
 import me.asunamyadmin.loregardsite.profile.data.ProfileEntity;
 import me.asunamyadmin.loregardsite.profile.data.ProfileRepository;
 import me.asunamyadmin.loregardsite.profile.exception.AlreadyHaveThisStatusException;
 import me.asunamyadmin.loregardsite.profile.exception.ProfileNotFoundException;
 import me.asunamyadmin.loregardsite.profile.exception.UsernameAlreadyTakenException;
 import me.asunamyadmin.loregardsite.security.UserRole;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,15 +17,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class ProfileService {
     private final ProfileRepository profileRepository;
     private final ProfileMapper mapper;
-
-    @Autowired
-    public ProfileService(ProfileRepository profileRepository, ProfileMapper mapper) {
-        this.profileRepository = profileRepository;
-        this.mapper = mapper;
-    }
+    private final DiscordProfileRepository discordRepository;
 
     public List<Profile> getAllProfiles(){
         return profileRepository.findAll().stream()
@@ -51,6 +49,11 @@ public class ProfileService {
         ProfileEntity profileEntity = mapper.mapProfileToProfileEntity(profile);
         profileEntity.setAccountNumber(profileRepository.getNextAccountNumber());
         profileRepository.save(profileEntity);
+
+        DiscordProfileEntity discordEntity = new DiscordProfileEntity();
+        discordEntity.setProfileID(profileEntity.getId());
+        discordRepository.save(discordEntity);
+
         return mapper.mapProfileEntityToProfile(profileEntity);
     }
 

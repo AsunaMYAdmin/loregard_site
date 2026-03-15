@@ -138,11 +138,4 @@ public class MainController {
 
         return "redirect:/logout";
     }
-
-    @GetMapping("/settings")
-    public String settingsPage() {
-        return "settings";
-    }
-
-
 }

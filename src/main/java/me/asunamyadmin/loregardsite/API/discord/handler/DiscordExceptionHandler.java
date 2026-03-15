@@ -2,7 +2,6 @@ package me.asunamyadmin.loregardsite.API.discord.handler;
 
 import me.asunamyadmin.loregardsite.API.discord.exception.DiscordProfileAlreadyExistException;
 import me.asunamyadmin.loregardsite.API.discord.exception.DiscordUserNotFoundException;
-import me.asunamyadmin.loregardsite.API.discord.exception.NullTokenException;
 import me.asunamyadmin.loregardsite.global.ExceptionsDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +13,6 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 public class DiscordExceptionHandler {
     @ExceptionHandler(exception = {
-            NullTokenException.class,
             DiscordUserNotFoundException.class
     })
     public ResponseEntity<ExceptionsDTO> handleException(RuntimeException exception) {

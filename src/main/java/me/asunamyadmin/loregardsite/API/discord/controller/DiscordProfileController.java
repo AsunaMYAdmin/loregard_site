@@ -2,7 +2,6 @@ package me.asunamyadmin.loregardsite.API.discord.controller;
 
 import me.asunamyadmin.loregardsite.API.discord.domain.DiscordProfile;
 import me.asunamyadmin.loregardsite.API.discord.domain.DiscordService;
-import me.asunamyadmin.loregardsite.API.discord.domain.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +13,10 @@ import java.util.List;
 @RequestMapping("/api/discord/profile")
 public class DiscordProfileController {
     DiscordService discordService;
-    TokenService tokenService;
 
     @Autowired
-    public DiscordProfileController(DiscordService discordService, TokenService tokenService) {
+    public DiscordProfileController(DiscordService discordService) {
         this.discordService = discordService;
-        this.tokenService = tokenService;
     }
 
     @GetMapping("/id/{id}")
@@ -44,17 +41,6 @@ public class DiscordProfileController {
     public ResponseEntity<Void> deleteDiscordProfile() {
         discordService.deleteDiscordProfile();
         return ResponseEntity.ok().build();
-    }
-
-    @PatchMapping("/newToken")
-    public ResponseEntity<String> newToken() {
-        String token = tokenService.changeToken();
-        return ResponseEntity.status(HttpStatus.CREATED).body(token);
-    }
-
-    @PostMapping("/checkToken")
-    public ResponseEntity<Boolean> checkToken(@RequestBody String token) {
-        return ResponseEntity.ok(discordService.isValidToken(token));
     }
 
 }

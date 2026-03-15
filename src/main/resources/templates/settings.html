@@ -213,25 +213,29 @@
 
               <div class="token-generator">
                 <div class="token-display">
-                  <code class="token-code" id="generatedToken">****-****-****-****</code>
+                  <!--/* @thymesVar id="token" type="java.lang.String" */-->
+                  <code class="token-code" id="generatedToken" th:text="${token} ?: '****-****-****'">****-****-****-****</code>
                   <button class="btn btn-outline btn-small" id="copyTokenBtn">
                     <span class="btn-icon">📋</span>
                     <span>Копировать</span>
                   </button>
                 </div>
 
-                <button class="btn btn-primary" id="generateTokenBtn">
-                  <span class="btn-icon" id="generateIcon">⚡</span>
-                  <span id="generateText">Сгенерировать токен</span>
-                </button>
-              </div>
+                <form th:if="${token == null}" th:action="@{/token/generate}" method="post">
+                  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                  <button class="btn btn-primary" id="generateTokenBtn">
+                    <span class="btn-icon" id="generateIcon">⚡</span>
+                    <span id="generateText">Сгенерировать токен</span>
+                  </button>
+                </form>
 
-              <div class="token-warning">
-                <span class="warning-icon">⚠️</span>
-                <p class="warning-text">
-                  Токен действует 15 минут. Никому не сообщайте токен!
-                  Вводите его только в Discord боте командой /link.
-                </p>
+                <form th:if="${token != null}" th:action="@{/token/change}" method="post">
+                  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                  <button class="btn btn-primary">
+                    <span class="btn-icon">🔄</span>
+                    <span>Обновить токен</span>
+                  </button>
+                </form>
               </div>
             </div>
 
@@ -444,169 +448,12 @@
     });
   });
 
-  // Генерация токена через API с CSRF поддержкой
-  const generateBtn = document.getElementById('generateTokenBtn');
-  const generateIcon = document.getElementById('generateIcon');
-  const generateText = document.getElementById('generateText');
-  const tokenDisplay = document.getElementById('generatedToken');
-  const copyBtn = document.getElementById('copyTokenBtn');
-  const discordStatus = document.getElementById('discordStatus');
-  const discordStatusText = document.getElementById('discordStatusText');
-  const tokenSection = document.getElementById('tokenSection');
-  const unlinkSection = document.getElementById('unlinkSection');
-
-  // Получаем CSRF токен из meta-тегов
-  const csrfToken = document.querySelector('meta[name="_csrf"]')?.content;
-  const csrfHeader = document.querySelector('meta[name="_csrf_header"]')?.content;
-
-  if (generateBtn && tokenDisplay) {
-    generateBtn.addEventListener('click', async function() {
-      try {
-        // Показываем загрузку
-        const originalText = generateText.textContent;
-        generateText.textContent = 'Генерация...';
-        generateIcon.textContent = '⏳';
-        generateBtn.disabled = true;
-
-        // Подготавливаем headers с CSRF токеном
-        const headers = {
-          'Content-Type': 'application/json',
-        };
-
-        if (csrfToken && csrfHeader) {
-          headers[csrfHeader] = csrfToken;
-        }
-
-        // Отправляем запрос на сервер
-        const response = await fetch('/token/generate', {
-          method: 'POST',
-          headers: headers,
-          credentials: 'same-origin'
-        });
-
-        // Получаем текст ответа
-        const responseText = await response.text();
-
-        if (!response.ok) {
-          // В зависимости от статуса показываем разные ошибки
-          if (response.status === 409) {
-            throw new Error('Discord уже привязан к этому аккаунту');
-          } else if (response.status === 404) {
-            throw new Error('Профиль не найден');
-          } else {
-            throw new Error(responseText || 'Ошибка при генерации токена');
-          }
-        }
-
-        // Отображаем токен
-        tokenDisplay.textContent = responseText;
-
-        // Анимация успеха
-        generateIcon.textContent = '✅';
-        generateText.textContent = 'Токен сгенерирован!';
-
-        // Показываем инструкции
-        alert('✅ Токен успешно сгенерирован!\n\n' +
-                'Теперь введите команду в Discord боте:\n' +
-                '/link ' + responseText + '\n\n' +
-                'После этого Discord будет привязан к вашему аккаунту.');
-
-        // Обновляем статус Discord (показываем что ожидает привязки)
-        if (discordStatus && discordStatusText) {
-          const statusIcon = discordStatus.querySelector('.status-icon');
-          if (statusIcon) {
-            statusIcon.innerHTML = '<span class="unlinked-icon">⏳</span>';
-          }
-          discordStatusText.textContent = 'Ожидает подтверждения через Discord бота...';
-        }
-
-        // Возвращаем исходный текст через 3 секунды
-        setTimeout(() => {
-          generateIcon.textContent = '⚡';
-          generateText.textContent = originalText;
-          generateBtn.disabled = false;
-        }, 3000);
-
-      } catch (error) {
-        console.error('Error:', error);
-
-        // Показываем специфичную ошибку
-        generateIcon.textContent = '❌';
-        generateText.textContent = 'Ошибка';
-
-        // Детальное сообщение в зависимости от ошибки
-        let errorMessage = error.message;
-        if (error.message.includes('Discord уже привязан')) {
-          errorMessage = 'Discord уже привязан к этому аккаунту';
-          // Показываем кнопку для отвязки
-          if (unlinkSection) {
-            unlinkSection.style.display = 'block';
-          }
-          if (tokenSection) {
-            tokenSection.style.opacity = '0.5';
-            tokenSection.style.pointerEvents = 'none';
-          }
-        }
-
-        alert('❌ Ошибка: ' + errorMessage);
-
-        setTimeout(() => {
-          generateIcon.textContent = '⚡';
-          generateText.textContent = 'Сгенерировать токен';
-          generateBtn.disabled = false;
-        }, 2000);
-      }
-    });
-  }
-
-  // Копирование токена
-  if (copyBtn && tokenDisplay) {
-    copyBtn.addEventListener('click', async function() {
-      try {
-        await navigator.clipboard.writeText(tokenDisplay.textContent);
-
-        const originalHtml = copyBtn.innerHTML;
-        copyBtn.innerHTML = '<span class="btn-icon">✅</span><span>Скопировано!</span>';
-
-        setTimeout(() => {
-          copyBtn.innerHTML = originalHtml;
-        }, 2000);
-
-      } catch (err) {
-        console.error('Failed to copy:', err);
-
-        // Запасной вариант для старых браузеров
-        const textArea = document.createElement('textarea');
-        textArea.value = tokenDisplay.textContent;
-        document.body.appendChild(textArea);
-        textArea.select();
-
-        try {
-          document.execCommand('copy');
-          const originalHtml = copyBtn.innerHTML;
-          copyBtn.innerHTML = '<span class="btn-icon">✅</span><span>Скопировано!</span>';
-
-          setTimeout(() => {
-            copyBtn.innerHTML = originalHtml;
-          }, 2000);
-        } catch (e) {
-          alert('Не удалось скопировать токен');
-        }
-
-        document.body.removeChild(textArea);
-      }
-    });
-  }
-
-  // Предотвращаем повторную отправку форм
-  document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', function() {
-      const submitBtn = this.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        submitBtn.disabled = true;
-      }
-    });
+  document.getElementById('copyTokenBtn').addEventListener('click', function() {
+    const token = document.getElementById('generatedToken').textContent;
+    navigator.clipboard.writeText(token);
+    this.querySelector('span:last-child').textContent = 'Скопировано!';
+    setTimeout(() => this.querySelector('span:last-child').textContent = 'Копировать', 2000);
   });
-</script>
-</body>
+  </script>
+  </body>
 </html>
